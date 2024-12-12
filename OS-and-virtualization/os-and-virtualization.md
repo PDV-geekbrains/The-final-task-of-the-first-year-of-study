@@ -14,6 +14,7 @@
 ## 2. Работа с директориями в Linux
 
 ### 2.1 Создать новую директорию и переместить туда файл "Human Friends".
+![Make new dir and move "Human Friends" there.](Images/2024-12-12%20200537.png)
 
 ## 3. Работа с MySQL в Linux.
 
