@@ -37,6 +37,15 @@
 
 Создаём таблицу `pack_animals` для класса `PackAnimal`.
 
+![Create table 'pack_animals'](Images/2024-12-30%20125031.png)
+
+Для обеих таблиц сделаем поля `type` и `name` обязательными.
+
+Для таблицы `pets`:
+![Make fields `type` and `name` of table `pets` NOT NULL](Images/2024-12-30%20134429.png)
+
+Для таблицы `pack_animals`:
+![Make fields `type` and `name` of table `pack_animals` NOT NULL](Images/2024-12-30%20135314.png)
 
 
 #### 7.2.2. Заполнить таблицы данными о животных, их командах и датами рождения
