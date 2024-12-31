@@ -33,22 +33,24 @@
 
 Создаём таблицу `pets` для класса `Pet`.
 
-![Create table 'pet'](Images/2024-12-29%20230606.png)
+![Create table 'pet'](Images/2024-12-31%20135724.png)
 
 Создаём таблицу `pack_animals` для класса `PackAnimal`.
 
-![Create table 'pack_animals'](Images/2024-12-30%20125031.png)
+![Create table 'pack_animals'](Images/2024-12-31%20231131.png)
 
 Для обеих таблиц сделаем поля `type` и `name` обязательными.
 
-Для таблицы `pets`:
+Для таблицы `pets`: 
 ![Make fields `type` and `name` of table `pets` NOT NULL](Images/2024-12-30%20134429.png)
 
-Для таблицы `pack_animals`:
+Для таблицы `pack_animals`: 
 ![Make fields `type` and `name` of table `pack_animals` NOT NULL](Images/2024-12-30%20135314.png)
 
-
 #### 7.2.2. Заполнить таблицы данными о животных, их командах и датами рождения
+
+Заполняем таблицу `pets`: 
+
 
 #### 7.2.3. Удалить записи о верблюдах и объединить таблицы лошадей и ослов
 
