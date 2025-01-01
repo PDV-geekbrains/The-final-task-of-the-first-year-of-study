@@ -41,16 +41,31 @@
 
 Для обеих таблиц сделаем поля `type` и `name` обязательными.
 
-Для таблицы `pets`: 
+Для таблицы `pets`:
+
 ![Make fields `type` and `name` of table `pets` NOT NULL](Images/2024-12-31%20232451.png)
 
-Для таблицы `pack_animals`: 
+Для таблицы `pack_animals`:
+
 ![Make fields `type` and `name` of table `pack_animals` NOT NULL](Images/2024-12-31%20233027.png)
 
 #### 7.2.2. Заполнить таблицы данными о животных, их командах и датами рождения
 
 Заполняем таблицу `pets`: 
 
+![Populate table `pets`](Images/2025-01-01%20153017.png)
+
+Проверим содержимое таблицы `pets`:
+
+![Show up content of table `pets`](Images/2025-01-01%20153409.png)
+
+Заполняем таблицу `pack_animals`:
+
+![Populate table `pack_animals`](Images/2025-01-01%20155103.png)
+
+Проверим содержимое таблицы `pack_animals`:
+
+![Show up content of table `pack_animals`](Images/2025-01-01%20155441.png)
 
 #### 7.2.3. Удалить записи о верблюдах и объединить таблицы лошадей и ослов
 
