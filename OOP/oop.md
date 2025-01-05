@@ -73,6 +73,14 @@
 
 ![Delete records where type = 'верблюд' from 'pack_animals'](Images/2025-01-01%20194729.png)
 
+Поскольку, при создании таблиц 'pets' и 'pack_animals' они были созданы по умолчанию в формате 'InnoDB', для получения возможности их объединения переведём их в формат 'MyISAM'.
+
+![Convert tables 'pets' and 'pack_animals' to 'MyISAM'](Images/2025-01-03%20133511.png)
+
+Проверим формат таблиц:
+
+![Check 'pets' and 'pack_animals' format](Images/2025-01-03_13-43-44.png)
+
 Объединяем таблицы `pets` и `pack_animals`:
 
 ![Union tables `pets' and 'pack_animals'](Images/2025-01-05%20133448.png)
