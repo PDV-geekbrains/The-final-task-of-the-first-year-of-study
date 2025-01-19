@@ -9,11 +9,11 @@ public class Hamster extends Pet {
      * @param storedFeedAmount Feed in grams a hamster can store.
      */
     public Hamster(
-            String petKind,
             String name,
             String petOwnerAddress,
             int storedFeedAmount) {
-        super(petKind, name, petOwnerAddress);
+        super(name, petOwnerAddress);
+        super.SetPetKind("Hamster");
         this.storedFeedAmount = storedFeedAmount;
     }
 

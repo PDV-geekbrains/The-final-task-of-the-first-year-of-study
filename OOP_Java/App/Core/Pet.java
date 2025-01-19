@@ -12,16 +12,15 @@ public class Pet extends Animal {
 
     /** Constructor */
     public Pet(
-            String petKind,
             String name,
             String petOwnerAddress) {
-        this.petKind = petKind;
+        super.SetAnimalType("Pet");
         this.name = name;
         this.petOwnerAddress = petOwnerAddress;
     }
 
     /** Sets kind of pet. */
-    public void SetPetKind(String petKind) {
+    protected void SetPetKind(String petKind) {
         this.petKind = petKind;
     }
 

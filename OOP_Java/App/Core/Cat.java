@@ -5,11 +5,11 @@ public class Cat extends Pet {
 
     /** Constructor. */
     public Cat(
-            String petKind,
             String name,
             String petOwnerAddress,
             String climbingDegree) {
-        super(climbingDegree, climbingDegree, climbingDegree);
+        super(name, petOwnerAddress);
+        super.SetPetKind("Cat");
         this.climbingDegree = climbingDegree;
     }
 

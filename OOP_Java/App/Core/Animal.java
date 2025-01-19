@@ -1,28 +1,17 @@
 package OOP_Java.App.Core;
 
 public abstract class Animal {
-    private String type;
-    private String kind;
+    private String animalType;
     private int weight;
 
     /** Returns animal type. */
     public String GetAnimalType() {
-        return this.type;
+        return this.animalType;
     }
 
     /** Sets animal type. */
     public void SetAnimalType(String animalType) {
-        this.type = animalType;
-    }
-
-    /** Gets animal kind. */
-    public String GetAnimalKind() {
-        return this.kind;
-    }
-
-    /** Sets animal kind. */
-    public void SetAnimalKind(String animalKind) {
-        this.kind = animalKind;
+        this.animalType = animalType;
     }
 
     /** Gets animal weight. */
