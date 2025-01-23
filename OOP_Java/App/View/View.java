@@ -14,53 +14,62 @@ public class View {
         this.sc = scanner;
     }
 
-    /** Выводит на консоль главное меню. */
-    public int mainMenu() {
-
-        StringBuilder menu = new StringBuilder()
-                .append("=== Меню ===\n")
-                .append("1 - Сложение\n")
-                .append("2 - Вычитание\n")
-                .append("3 - Умножение\n")
-                .append("4 - Деление\n")
-                .append("Введите номер операции: ");
+    /**
+     * Get menu item user selected.
+     * 
+     * @param menu          Menu caption and contents.
+     * @param maxItemNumber Maximum menu item number.
+     * @return Selected menu item number.
+     */
+    public int GetMenuItemUserChoice(String menu, int maxItemNumber) {
         System.out.print(menu);
-        return getMenuItem();
-    }
-
-    /** Возвращает номер меню, выбранный пользователем. */
-    private int getMenuItem() {
         int result = 0;
+
         try {
             result = Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println(e);
+            System.out.print("Error. Please enter integer number.\n");
+            GetMenuItemUserChoice(menu, maxItemNumber);
         }
+
+        if (result > maxItemNumber) {
+            System.out.print("Error. Entered number exceeds maximum value.\n");
+            GetMenuItemUserChoice(menu, maxItemNumber);
+        }
+
         return result;
     }
 
     /**
-     * Возвращает значение, введённое пользователем.
+     * Get user input of integer number.
      * 
-     * @param text - обращение к пользователю выводимое на консоль.
+     * @param message Message displayed for user.
+     * @return User entered number.
      */
-    public double getUserInput(String text) {
-        System.out.print(text);
-        double input = 0;
-        try {
-            input = Double.parseDouble(sc.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println(e);
-        }
-        return input;
+    public int GetUserIntValueInput(String message) {
+        // TODO
+        return 0;
     }
 
     /**
-     * Выводит текст на консоль.
+     * Get user input of floating-point number.
      * 
-     * @param text - текст для вывода.
+     * @param message Message displayed for user.
+     * @return User entered number.
      */
-    public void print(String text) {
-        System.out.println(text + "\n");
+    public float GetUserDoubleValueInput(String message) {
+        // TODO
+        return 0;
+    }
+
+    /**
+     * Get user input of string value.
+     * 
+     * @param message Message displayed for user.
+     * @return User entered string.
+     */
+    public String GetUserStringValueInput(String message) {
+        // TODO.
+        return "__";
     }
 }
