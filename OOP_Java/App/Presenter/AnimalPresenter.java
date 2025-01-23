@@ -19,7 +19,7 @@ public class AnimalPresenter {
      * 
      * @return Menu item number.
      */
-    public String DisplayMenu_Main() {
+    public void DisplayMainMenu() {
         StringBuilder sb = new StringBuilder()
                 .append("=== MAIN MENU ===\n")
                 .append("1. Display list of animals\n")
@@ -31,15 +31,61 @@ public class AnimalPresenter {
                 .append("7. Delete animal\n")
                 .append("8. Exit\n")
                 .append("Enter menu item number...\n");
-        String result = "";
+
         switch (view.GetMenuItemUserChoice(sb.toString(), 8)) {
             case 1:
-
+                DisplayListOfAnimals();
                 break;
-
+            case 2:
+                DisplayAnimalsByBirthday();
+                break;
+            case 3:
+                DisplayTotalAnimalQuantity();
+                break;
+            case 4:
+                DisplayAddAnimalDialog();
+                break;
+            case 5:
+                DisplayGetAnimalInfoDialog();
+                break;
+            case 6:
+                DisplayEditAnimalDialog();
+                break;
+            case 7:
+                DisplayDeleteAnimalDialog();
+                break;
+            case 8:
+                System.exit(0);
             default:
                 break;
         }
-public String DisplayMenu_AnimalByBirthday
+    }
+
+    private void DisplayListOfAnimals() {
+        // TODO
+    }
+
+    private void DisplayAnimalsByBirthday() {
+        // TODO
+    }
+
+    private void DisplayTotalAnimalQuantity() {
+        // TODO
+    }
+
+    private void DisplayAddAnimalDialog() {
+        // TODO
+    }
+
+    private void DisplayGetAnimalInfoDialog() {
+        // TODO
+    }
+
+    private void DisplayEditAnimalDialog() {
+        // TODO
+    }
+
+    private void DisplayDeleteAnimalDialog() {
+        // TODO
     }
 }
