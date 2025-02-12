@@ -1,17 +1,20 @@
 package OOP_Java.App.View;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.InputMismatchException;
 
+/** Displays data to console interactively. */
 public class View {
-    Scanner sc;
+    BufferedReader reader;
 
     /**
      * Конструктор.
      * 
-     * @param scanner - сканер для чтения ввода с консоли.
+     * @param reader - ридер для чтения с консоли.
      */
-    public View(Scanner scanner) {
-        this.sc = scanner;
+    public View(BufferedReader reader) {
+        this.reader = reader;
     }
 
     /**
@@ -26,10 +29,12 @@ public class View {
         int result = 0;
 
         try {
-            result = Integer.parseInt(sc.nextLine());
+            result = Integer.parseInt(reader.readLine());
         } catch (NumberFormatException e) {
             System.out.print("Error. Please enter integer number.\n");
             GetMenuItemUserChoice(menu, maxItemNumber);
+        } catch (IOException e) {
+            // TODO
         }
 
         if (result > maxItemNumber) {
@@ -44,11 +49,22 @@ public class View {
      * Get user input of integer number.
      * 
      * @param message Message displayed for user.
-     * @return User entered number.
+     * @return User entered number or -1 if input is not correct.
      */
     public int GetUserIntValueInput(String message) {
-        // TODO
-        return 0;
+        System.out.print(message);
+        int input = -1;
+
+        // Correct user input is any integer that equal or greater 0.
+        try {
+            input = Integer.parseInt(reader.readLine());
+        } catch (NumberFormatException e) {
+            System.out.print("Error. Please enter correct animal ID. Animal ID is integer.\n");
+        } catch (IOException e) {
+            // TODO
+        }
+
+        return input;
     }
 
     /**
@@ -71,5 +87,14 @@ public class View {
     public String GetUserStringValueInput(String message) {
         // TODO.
         return "__";
+    }
+
+    /**
+     * Displays a message to console.
+     * 
+     * @param message A message to display.
+     */
+    public void DisplayMessage(String message) {
+        System.out.println(message);
     }
 }

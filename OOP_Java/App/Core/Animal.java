@@ -1,26 +1,18 @@
 package OOP_Java.App.Core;
 
+import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Core.Enums.AnimalTypes;
+
 public abstract class Animal {
-    private String animalType;
-    private int weight;
+    public abstract AnimalTypes GetAnimalType();
 
-    /** Returns animal type. */
-    public String GetAnimalType() {
-        return this.animalType;
-    }
+    public abstract int GetWeight();
 
-    /** Sets animal type. */
-    public void SetAnimalType(String animalType) {
-        this.animalType = animalType;
-    }
+    public abstract void SetWeight(int animalWeight);
 
-    /** Gets animal weight. */
-    public int GetWeight() {
-        return this.weight;
-    }
+    /** Returns full info about the animal. */
+    public abstract Object GetFullInfo();
 
-    /** Sets animal weight in kilograms. */
-    public void SetWeight(int animalWeight) {
-        this.weight = animalWeight;
-    }
+    /** Returns short info about the animal. */
+    public abstract AnimalShortInfoDto GetShortInfo();
 }

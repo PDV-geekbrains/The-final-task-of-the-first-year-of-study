@@ -1,71 +1,17 @@
 package OOP_Java.App.Core;
 
-import java.util.Date;
-import java.util.List;
+import OOP_Java.App.Core.Enums.AnimalTypes;
 
-public class Pet extends Animal {
-    private String petKind;
-    private String name;
-    private Date birthDate;
-    private List<String> commands;
-    private String petOwnerAddress;
+public abstract class Pet extends Animal {
 
-    /** Constructor */
-    public Pet(
-            String name,
-            String petOwnerAddress) {
-        super.SetAnimalType("Pet");
-        this.name = name;
-        this.petOwnerAddress = petOwnerAddress;
-    }
+    private static final AnimalTypes animalType = AnimalTypes.PET;
 
-    /** Sets kind of pet. */
-    protected void SetPetKind(String petKind) {
-        this.petKind = petKind;
-    }
+    abstract String GetOwnerHomeAddress();
 
-    /** Gets kind of pet. */
-    public String GetPetKind() {
-        return this.petKind;
-    }
+    abstract void SetOwnerHomeAddress(String address);
 
-    /** Sets pet name. */
-    public void SetName(String name) {
-        this.name = name;
-    }
-
-    /** Gets the pet name. */
-    public String GetName() {
-        return this.name;
-    }
-
-    /** Sets the pet birth date. */
-    public void SetBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    /** Gets the pet birth date. */
-    public Date GetBirthDate() {
-        return this.birthDate;
-    }
-
-    /** Sets commands the pet knows. */
-    public void SetCommands(List<String> commands) {
-        this.commands = commands;
-    }
-
-    /** Gets commands the pet knows. */
-    public List<String> GetCommands() {
-        return this.commands;
-    }
-
-    /** Sets pet owner address. */
-    public void SetPetOwnerAddress(String petOwnerAddress) {
-        this.petOwnerAddress = petOwnerAddress;
-    }
-
-    /** Gets pet owner address. */
-    public String GetPetOwnerAddress() {
-        return this.petOwnerAddress;
+    @Override
+    public AnimalTypes GetAnimalType() {
+        return animalType;
     }
 }

@@ -1,6 +1,9 @@
 package OOP_Java.App.Core.Enums;
 
-public enum PackAnimalKinds {
+public enum AnimalKinds {
+    DOG,
+    CAT,
+    HAMSTER,
     HORSE,
     CAMEL,
     DONKEY

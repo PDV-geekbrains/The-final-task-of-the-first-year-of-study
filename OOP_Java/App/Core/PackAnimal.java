@@ -3,37 +3,28 @@ package OOP_Java.App.Core;
 import java.util.Date;
 import java.util.List;
 
+import OOP_Java.App.Core.Enums.AnimalTypes;
+import OOP_Java.App.Core.Enums.AnimalKinds;
+
 public class PackAnimal extends Animal {
-    private String packAnimalKind;
-    private String name;
+    private AnimalKinds packAnimalKind;
     private Date birthDate;
-    private List<String> commands;
     private int loadCapacity;
 
-    /** Constructor */
-    public PackAnimal(String name) {
-        super.SetAnimalType("Pack animal");
-        this.name = name;
+    /**
+     * Constructor.
+     * 
+     * @param animalKind Kind of pack animal.
+     * @param name       Animal name.
+     */
+    public PackAnimal(AnimalKinds animalKind) {
+        super(AnimalTypes.PACK_ANIMAL);
+        this.packAnimalKind = animalKind;
     }
 
     /** Get kind of the pack animal. */
     public String GetPackAnimalKind() {
-        return this.packAnimalKind;
-    }
-
-    /** Set kind of the pack animal. */
-    protected void SetPackAnimalKind(String packAnimalKind) {
-        this.packAnimalKind = packAnimalKind;
-    }
-
-    /** Get the pack animal name. */
-    public String GetName() {
-        return this.name;
-    }
-
-    /** Set the pack animal name. */
-    public void setName(String name) {
-        this.name = name;
+        return this.packAnimalKind.toString();
     }
 
     /** Get the pack animal birth date. */
@@ -44,16 +35,6 @@ public class PackAnimal extends Animal {
     /** Set the pack animal birth date. */
     public void SetBirthDate(Date birthDate) {
         this.birthDate = birthDate;
-    }
-
-    /** Get commands the pack animal knows. */
-    public List<String> GetCommands() {
-        return this.commands;
-    }
-
-    /** Set commands the pack animal knows. */
-    public void setCommands(List<String> commands) {
-        this.commands = commands;
     }
 
     /** Get the pack animal load capacity in kilograms. */
