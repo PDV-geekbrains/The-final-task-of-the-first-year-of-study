@@ -2,17 +2,18 @@ package OOP_Java.App.Core.DTOs;
 
 import java.util.LinkedList;
 
+import OOP_Java.App.Core.Enums.AnimalCommands;
+import OOP_Java.App.Core.Enums.AnimalKinds;
 import OOP_Java.App.Core.Enums.AnimalTypes;
 import OOP_Java.App.Core.Enums.CatClimbingDegrees;
-import OOP_Java.App.Core.Enums.PetKinds;
 
 public record CatFullInfoDto(
                 AnimalTypes animalType,
-                PetKinds petKind,
-                int weight,
+                AnimalKinds petKind,
+                float weight,
                 String ownerHomeAddress,
                 String name,
                 String birthDate,
-                LinkedList<String> commands,
+                LinkedList<AnimalCommands> commands,
                 CatClimbingDegrees climbingDegree) {
 }

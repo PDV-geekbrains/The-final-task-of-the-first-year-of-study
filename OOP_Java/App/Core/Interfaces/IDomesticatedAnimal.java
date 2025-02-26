@@ -2,6 +2,8 @@ package OOP_Java.App.Core.Interfaces;
 
 import java.util.List;
 
+import OOP_Java.App.Core.Enums.AnimalCommands;
+
 public interface IDomesticatedAnimal {
     String GetName();
 
@@ -11,7 +13,7 @@ public interface IDomesticatedAnimal {
 
     void SetBirthDate(String birthDate);
 
-    List<String> GetCommands();
+    List<AnimalCommands> GetCommands();
 
-    void SetCommand(String command);
+    void SetCommand(AnimalCommands command);
 }

@@ -3,6 +3,7 @@ package OOP_Java.App.View;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.regex.Pattern;
 
 /** Displays data to console interactively. */
 public class View {
@@ -25,22 +26,31 @@ public class View {
      * @return Selected menu item number.
      */
     public int GetMenuItemUserChoice(String menu, int maxItemNumber) {
-        System.out.print(menu);
+        String input = "";
         int result = 0;
+        boolean isValid = false;
 
-        try {
-            result = Integer.parseInt(reader.readLine());
-        } catch (NumberFormatException e) {
-            System.out.print("Error. Please enter integer number.\n");
-            GetMenuItemUserChoice(menu, maxItemNumber);
-        } catch (IOException e) {
-            // TODO
-        }
+        do {
+            System.out.print(menu);
+            try {
+                input = reader.readLine();
+                result = Integer.parseInt(input);
+                isValid = true;
+            } catch (NumberFormatException e) {
+                System.out.print("Error. You have entered \"" + input +
+                        "\". Enter integer.\n");
+                isValid = false;
+            } catch (IOException e) {
+                System.out.print("Error. Unexpected error occurred. Try again.\n");
+                isValid = false;
+            }
 
-        if (result > maxItemNumber) {
-            System.out.print("Error. Entered number exceeds maximum value.\n");
-            GetMenuItemUserChoice(menu, maxItemNumber);
-        }
+            if (result > maxItemNumber) {
+                System.out.print("Error. You have entered \"" + input +
+                        "\". Maximum menu item is \"" + maxItemNumber + "\". Try again.\n");
+                isValid = false;
+            }
+        } while (!isValid);
 
         return result;
     }
@@ -74,8 +84,23 @@ public class View {
      * @return User entered number.
      */
     public float GetUserDoubleValueInput(String message) {
-        // TODO
-        return 0;
+        float input = 0;
+
+        do {
+            System.out.print(message);
+            try {
+                input = Float.parseFloat(reader.readLine());
+                if (input <= 0) {
+                    System.out.print("Error. Weight must be more than 0.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.print("Error. Please enter correct weight.\n");
+            } catch (IOException e) {
+                // TODO
+            }
+        } while (input <= 0);
+
+        return input;
     }
 
     /**
@@ -85,8 +110,16 @@ public class View {
      * @return User entered string.
      */
     public String GetUserStringValueInput(String message) {
-        // TODO.
-        return "__";
+        String input = "";
+
+        System.out.print(message);
+        try {
+            input = reader.readLine();
+        } catch (IOException e) {
+            // TODO
+        }
+
+        return input;
     }
 
     /**
@@ -96,5 +129,11 @@ public class View {
      */
     public void DisplayMessage(String message) {
         System.out.println(message);
+    }
+
+    /** Cleans terminal screen. */
+    public void CleanScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

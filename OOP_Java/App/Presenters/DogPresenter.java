@@ -1,64 +1,57 @@
 package OOP_Java.App.Presenters;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.DTOs.DogFullInfoDto;
+import OOP_Java.App.Core.Enums.AnimalCommands;
+import OOP_Java.App.Core.Enums.DogTrackingDegrees;
 import OOP_Java.App.View.View;
 
 public class DogPresenter {
-    private static DogPresenter instance = null;
-    private AnimalPresenter animalPresenter;
-    private View view;
-    private ArrayList<Animal> animals;
 
-    // Constructor.
-    private DogPresenter(
-            AnimalPresenter animalPresenter,
-            View view,
-            ArrayList<Animal> animals) {
-        this.animalPresenter = animalPresenter;
-        this.view = view;
-        this.animals = animals;
-    }
+    public static Dog AddInfoToDog(Dog dog, View view) {
+        // Set weight.
+        dog.SetWeight(view.GetUserDoubleValueInput(
+                "\nEnter dog weight: "));
 
-    /**
-     * Method returns singleton of DogPresenter.
-     * 
-     * @param animalPresenter Link to instance of class AnimalPresenter.
-     * @return Instance of class DogPresenter.
-     */
-    public static DogPresenter GetInstance(
-            AnimalPresenter animalPresenter,
-            View view,
-            ArrayList<Animal> animals) {
-        if (instance == null) {
-            instance = new DogPresenter(animalPresenter, view, animals);
+        // Set owner home address.
+        dog.SetOwnerHomeAddress(view.GetUserStringValueInput(
+                "\nEnter dog owner home address: "));
+
+        // Set dog tracking degree.
+        int i = 0;
+        StringBuilder sb = new StringBuilder()
+                .append("\n=== DOG TRACING DEGREES LIST ===\n\n");
+
+        // Display menu user can pick from.
+        for (DogTrackingDegrees degree : DogTrackingDegrees.values()) {
+            sb.append(++i + ". " + degree + "\n");
         }
+        sb.append("Enter menu item number: ");
 
-        return instance;
-    }
+        view.CleanScreen();
+        int menuItemNumber = view.GetMenuItemUserChoice(sb.toString(), i);
 
-    public void DisplayAddAnimalDialog() {
-        // TODO
+        dog.SetTrackingDegree(DogTrackingDegrees.values()[menuItemNumber - 1]);
+
+        return dog;
     }
 
     /**
      * Displays full info about a dog.
      * 
-     * @param concreteDog
+     * @param concreteDog Concrete dog.
      */
-    public void DisplayDogInfo(Dog concreteDog) {
-        view.DisplayMessage(FormatDogInfo(concreteDog.GetFullInfo()));
+    public static void DisplayDogInfo(Dog concreteDog, View view) {
+        view.DisplayMessage(GetFormattedDogInfo(concreteDog.GetFullInfo()));
     }
 
     /** Generates a report to display to a user. */
-    private String FormatDogInfo(DogFullInfoDto dto) {
+    private static String GetFormattedDogInfo(DogFullInfoDto dto) {
         StringBuilder text = new StringBuilder()
-                .append(("--- Dog info ---\n"))
+                .append(("\n=== ANIMAL INFO ===\n\n"))
                 .append("Animal type: " + dto.animalType().toString() + "\n")
                 .append("Pet kind: " + dto.petKind() + "\n")
                 .append("Weight: " +
@@ -66,22 +59,23 @@ public class DogPresenter {
                 .append("Owner home address: " + dto.ownerHomeAddress() + "\n")
                 .append("Name: " + dto.name() + "\n")
                 .append("Birth date: " + dto.birthDate() + "\n")
-                .append("Commands: " + GetFormattedCommandsList(dto.commands()) + "\n")
+                .append("Commands: " + SetCommandsInLine(dto.commands()) + "\n")
                 .append("Tracking degree: " +
-                        (dto.trackingDegree() != null ? dto.trackingDegree() : "") + "\n");
+                        (dto.trackingDegree() != null ? dto.trackingDegree() : ""));
 
         return text.toString();
     }
 
     /** Returns commands separated by spaces. */
-    private String GetFormattedCommandsList(LinkedList<String> commands) {
-        String s = "";
-        if (!commands.isEmpty()) {
-            Iterator<String> iterator = commands.iterator();
-            while (iterator.hasNext()) {
-                s = s + iterator.next() + " ";
+    private static String SetCommandsInLine(LinkedList<AnimalCommands> commands) {
+        StringBuilder sb = new StringBuilder();
+
+        for (AnimalCommands command : commands) {
+            if (!commands.isEmpty()) {
+                sb.append(command.toString() + " ");
             }
         }
-        return s;
+
+        return sb.toString();
     }
 }

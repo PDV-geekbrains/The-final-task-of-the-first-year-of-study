@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import OOP_Java.App.Core.DTOs.DogFullInfoDto;
 import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Core.Enums.AnimalCommands;
 import OOP_Java.App.Core.Enums.AnimalKinds;
 import OOP_Java.App.Core.Enums.AnimalTypes;
 import OOP_Java.App.Core.Enums.DogTrackingDegrees;
@@ -11,12 +12,16 @@ import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
 
 public class Dog extends Pet implements IDomesticatedAnimal {
     private static final AnimalKinds petKind = AnimalKinds.DOG;
-    private int weight;
+    private float weight;
     private String ownerHomeAddress;
     private String name;
     private String birthDate;
-    private LinkedList<String> commands = new LinkedList<>();
+    private LinkedList<AnimalCommands> commands = new LinkedList<>();
     private DogTrackingDegrees trackingDegree;
+
+    /** Constructor. */
+    public Dog() {
+    }
 
     /** Constructor. */
     public Dog(
@@ -36,13 +41,13 @@ public class Dog extends Pet implements IDomesticatedAnimal {
 
     /** Weight getter. */
     @Override
-    public int GetWeight() {
+    public float GetWeight() {
         return this.weight;
     }
 
     /** Weight setter. */
     @Override
-    public void SetWeight(int weight) {
+    public void SetWeight(float weight) {
         this.weight = weight;
     }
 
@@ -91,6 +96,7 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Dod birth date getter. */
+    @Override
     public String GetBirthDate() {
         return this.birthDate;
     }
@@ -101,12 +107,12 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Commands the dog knows getter. */
-    public LinkedList<String> GetCommands() {
+    public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
     /** Command the dog knows setter. */
-    public void SetCommand(String command) {
+    public void SetCommand(AnimalCommands command) {
         this.commands.add(command);
     }
 
@@ -118,5 +124,11 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     /** Dog tracking degree setter. */
     public void SetTrackingDegree(DogTrackingDegrees trackingDegree) {
         this.trackingDegree = trackingDegree;
+    }
+
+    /** Compares animals by birth day. */
+    @Override
+    public int compareTo(Animal animal) {
+        return this.birthDate.compareTo(animal.GetBirthDate());
     }
 }
