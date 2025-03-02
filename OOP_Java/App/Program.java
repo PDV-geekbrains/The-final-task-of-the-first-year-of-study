@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Presenters.AnimalPresenter;
+import OOP_Java.App.Presenters.MainPresenter;
 import OOP_Java.App.View.View;
 
 public class Program {
@@ -14,7 +14,7 @@ public class Program {
 
         ArrayList<Animal> animals = AnimalsListInit.InitAnimalsList();
 
-        AnimalPresenter presenter = AnimalPresenter.GetInstance(ui, animals);
+        MainPresenter presenter = MainPresenter.GetInstance(ui, animals);
         presenter.DisplayMainMenu();
     }
 }

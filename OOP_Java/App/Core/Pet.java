@@ -8,7 +8,7 @@ public abstract class Pet extends Animal {
 
     abstract String GetOwnerHomeAddress();
 
-    abstract void SetOwnerHomeAddress(String address);
+    abstract Pet SetOwnerHomeAddress(String address);
 
     @Override
     public AnimalTypes GetAnimalType() {

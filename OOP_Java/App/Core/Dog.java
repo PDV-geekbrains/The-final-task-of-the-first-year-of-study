@@ -10,6 +10,9 @@ import OOP_Java.App.Core.Enums.AnimalTypes;
 import OOP_Java.App.Core.Enums.DogTrackingDegrees;
 import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
 
+/**
+ * Class describes dog.
+ */
 public class Dog extends Pet implements IDomesticatedAnimal {
     private static final AnimalKinds petKind = AnimalKinds.DOG;
     private float weight;
@@ -24,19 +27,20 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Constructor. */
-    public Dog(
-            String name,
-            String birthDate,
-            String ownerHomeAddress) {
-        this.name = name;
-        this.birthDate = birthDate;
+    public Dog(String ownerHomeAddress) {
         this.ownerHomeAddress = ownerHomeAddress;
     }
 
-    /** Animal type dog belongs to getter. */
+    /** Animal type getter. */
     @Override
     public AnimalTypes GetAnimalType() {
         return super.GetAnimalType();
+    }
+
+    /** Animal king getter. */
+    @Override
+    public AnimalKinds GetAnimalKind() {
+        return petKind;
     }
 
     /** Weight getter. */
@@ -47,8 +51,9 @@ public class Dog extends Pet implements IDomesticatedAnimal {
 
     /** Weight setter. */
     @Override
-    public void SetWeight(float weight) {
+    public Dog SetWeight(float weight) {
         this.weight = weight;
+        return this;
     }
 
     @Override
@@ -81,8 +86,9 @@ public class Dog extends Pet implements IDomesticatedAnimal {
 
     /** Owner home address setter. */
     @Override
-    public void SetOwnerHomeAddress(String address) {
+    public Dog SetOwnerHomeAddress(String address) {
         this.ownerHomeAddress = address;
+        return this;
     }
 
     /** Dog name getter. */
@@ -91,8 +97,9 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Dog name setter. */
-    public void SetName(String name) {
+    public Dog SetName(String name) {
         this.name = name;
+        return this;
     }
 
     /** Dod birth date getter. */
@@ -102,8 +109,9 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Dog birth date setter. */
-    public void SetBirthDate(String birthDate) {
+    public Dog SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
+        return this;
     }
 
     /** Commands the dog knows getter. */
@@ -112,8 +120,9 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Command the dog knows setter. */
-    public void SetCommand(AnimalCommands command) {
+    public Dog SetCommand(AnimalCommands command) {
         this.commands.add(command);
+        return this;
     }
 
     /** Dog tracking degree getter. */
@@ -122,8 +131,9 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Dog tracking degree setter. */
-    public void SetTrackingDegree(DogTrackingDegrees trackingDegree) {
+    public Dog SetTrackingDegree(DogTrackingDegrees trackingDegree) {
         this.trackingDegree = trackingDegree;
+        return this;
     }
 
     /** Compares animals by birth day. */

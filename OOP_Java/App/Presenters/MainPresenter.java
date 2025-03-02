@@ -5,36 +5,31 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Core.Cat;
-import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Core.Enums.AnimalTypes;
 import OOP_Java.App.View.View;
 
-public class AnimalPresenter {
-    private static AnimalPresenter instance = null;
+/** Class represents communication between app core and app view. */
+public class MainPresenter {
+    private static MainPresenter instance = null;
     private View view;
     private ArrayList<Animal> animals;
 
     /** Constructor. */
-    private AnimalPresenter(View view, ArrayList<Animal> animals) {
+    private MainPresenter(View view, ArrayList<Animal> animals) {
         this.view = view;
         this.animals = animals;
     }
 
-    public static AnimalPresenter GetInstance(View view, ArrayList<Animal> animals) {
+    public static MainPresenter GetInstance(View view, ArrayList<Animal> animals) {
         if (instance == null) {
-            instance = new AnimalPresenter(view, animals);
+            instance = new MainPresenter(view, animals);
         }
 
         return instance;
     }
 
-    /**
-     * Display main menu.
-     * 
-     * @return Menu item number.
-     */
+    /** Displays main menu. */
     public void DisplayMainMenu() {
         StringBuilder sb = new StringBuilder()
                 .append("\n=== MAIN MENU ===\n\n")
@@ -43,13 +38,12 @@ public class AnimalPresenter {
                 .append("3. Display total animal quantity\n")
                 .append("4. Display animal info\n")
                 .append("5. Add animal\n")
-                .append("6. Edit animal\n")
-                .append("7. Delete animal\n")
-                .append("8. Exit\n\n")
+                .append("6. Delete animal\n")
+                .append("7. Exit\n\n")
                 .append("Enter menu item number: ");
 
         view.CleanScreen();
-        switch (view.GetMenuItemUserChoice(sb.toString(), 8)) {
+        switch (view.GetMenuItemUserChoice(sb.toString(), 7)) {
             // Display list of animals.
             case 1:
                 DisplayListOfAnimals();
@@ -62,46 +56,34 @@ public class AnimalPresenter {
             case 3:
                 DisplayTotalAnimalQuantity();
                 break;
-            // Get animal info.
+            // Display animal info.
             case 4:
-                DisplayAnimalInfo();
+                view.CleanScreen();
+                AnimalInfoPresenter.DisplayAnimalInfo(
+                        GetAnimalIdFromUser(),
+                        view,
+                        animals);
                 break;
             // Add animal.
             case 5:
-                AnimalKinds userChoice = GetAnimalKindFromUser();
-                AddAnimal(userChoice);
-                break;
-            // Edit animal.
-            case 6:
-                EditAnimal();
+                AnimalCreator.Create(
+                        GetAnimalKindFromUser(),
+                        view,
+                        animals);
                 break;
             // Delete animal.
-            case 7:
+            case 6:
                 DeleteAnimal();
                 break;
-            // Exit.
-            case 8:
+            // Exit app.
+            case 7:
+                view.CleanScreen();
                 System.exit(0);
             default:
                 break;
         }
 
         AskExitOrContinue();
-    }
-
-    /** Adds an animal to animals list. */
-    private void AddAnimal(AnimalKinds animalKind) {
-        switch (animalKind) {
-            case DOG:
-                Dog dog = new Dog();
-                IDomesticatedAnimal animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(dog, view);
-                dog = DogPresenter.AddInfoToDog((Dog) animal, view);
-                animals.add(dog);
-                break;
-
-            default:
-                break;
-        }
     }
 
     /**
@@ -182,45 +164,19 @@ public class AnimalPresenter {
 
     /** Display number of items in animals list. */
     private void DisplayTotalAnimalQuantity() {
+        int petsNum = 0;
+        for (Animal animal : animals) {
+            if (animal.GetAnimalType() == AnimalTypes.PET) {
+                petsNum++;
+            }
+        }
+
         view.CleanScreen();
         view.DisplayMessage(new StringBuilder()
-                .append("\n=== TOTAL ANIMAL QUANTITY ===\n\n")
-                .append("Total in the Animals List: " + animals.size() + " items.").toString());
-    }
-
-    // Displays full animal info.
-    private void DisplayAnimalInfo() {
-        view.CleanScreen();
-
-        int id = GetAnimalIdFromUser();
-        switch (GetAnimalKindById(id)) {
-            case "Dog":
-                Dog concreteDog = (Dog) animals.get(id);
-                DogPresenter.DisplayDogInfo(concreteDog, view);
-                break;
-            case "Cat":
-                Cat concreteCat = (Cat) animals.get(id);
-                // TODO
-            default:
-                break;
-        }
-    }
-
-    /**
-     * Returns animal kind.
-     * 
-     * @param id Animal ID.
-     * @return Animal kind.
-     */
-    private String GetAnimalKindById(int id) {
-        String fullName = animals.get(id).getClass().getName();
-        String animalKind = fullName.substring(fullName.lastIndexOf(".") + 1);
-
-        return animalKind;
-    }
-
-    public void EditAnimal() {
-        // TODO
+                .append("\n=== TOTAL QUANTITY ===\n\n")
+                .append("Pets : " + petsNum + "\n")
+                .append("Pack animals :" + (animals.size() - petsNum) + "\n")
+                .append("Total: " + animals.size()).toString());
     }
 
     /** Deletes animal from animals list. */
@@ -228,7 +184,7 @@ public class AnimalPresenter {
         int id = GetAnimalIdFromUser();
 
         view.CleanScreen();
-        if (GetConfirmToDelete(id)) {
+        if (GetConfirmationToDelete(id)) {
             animals.remove(id);
         }
     }
@@ -242,14 +198,15 @@ public class AnimalPresenter {
         int id = -1;
         int maxId = animals.size() - 1;
 
-        while (IsAnimalIdValid(id) == false) {
+        do {
             id = view.GetUserIntValueInput("\nEnter animal ID: ");
 
-            if (id != -1) {
+            if (!IsAnimalIdValid(id)) {
                 view.DisplayMessage("Error. You have entered " + id + ". " +
                         "Correct animal ID: 0 <= ID <= " + maxId + ".");
             }
-        }
+        } while (!IsAnimalIdValid(id));
+
         return id;
     }
 
@@ -269,7 +226,7 @@ public class AnimalPresenter {
         return false;
     }
 
-    // Suggests to a user to exit the app. or to go to the Main menu.
+    /** Suggests to a user to exit the app or to go to the Main menu. */
     private void AskExitOrContinue() {
         // Display the submenu.
         StringBuilder sb = new StringBuilder()
@@ -292,7 +249,7 @@ public class AnimalPresenter {
      * @param animalId Animal ID
      * @return True: delete animal. False: do not delete.
      */
-    private boolean GetConfirmToDelete(int animalId) {
+    private boolean GetConfirmationToDelete(int animalId) {
         boolean result = false;
 
         StringBuilder sb = new StringBuilder()

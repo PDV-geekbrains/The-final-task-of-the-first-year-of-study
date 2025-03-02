@@ -1,8 +1,8 @@
 package OOP_Java.App.Presenters;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
+import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.DTOs.DogFullInfoDto;
 import OOP_Java.App.Core.Enums.AnimalCommands;
@@ -10,7 +10,13 @@ import OOP_Java.App.Core.Enums.DogTrackingDegrees;
 import OOP_Java.App.View.View;
 
 public class DogPresenter {
-
+    /**
+     * Adds info to animal type of {@link OOP_Java.App.Core.Dog}.
+     * 
+     * @param animal Animal type of {@link OOP_Java.App.Core.Dog}.
+     * @param view   View.
+     * @return {@link OOP_Java.App.Core.Dog} object.
+     */
     public static Dog AddInfoToDog(Dog dog, View view) {
         // Set weight.
         dog.SetWeight(view.GetUserDoubleValueInput(
@@ -40,12 +46,13 @@ public class DogPresenter {
     }
 
     /**
-     * Displays full info about a dog.
+     * Displays full info about animal type of {@link OOP_Java.App.Core.Dog}.
      * 
-     * @param concreteDog Concrete dog.
+     * @param dog  Dog instance.
+     * @param view View instance.
      */
-    public static void DisplayDogInfo(Dog concreteDog, View view) {
-        view.DisplayMessage(GetFormattedDogInfo(concreteDog.GetFullInfo()));
+    public static void DisplayDogInfo(Dog dog, View view) {
+        view.DisplayMessage(GetFormattedDogInfo(dog.GetFullInfo()));
     }
 
     /** Generates a report to display to a user. */
