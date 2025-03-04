@@ -19,7 +19,7 @@ public class DomesticatedAnimalPresenter {
         pet.SetName(view.GetUserStringValueInput("\nEnter animal name: "));
 
         // Set animal birth day.
-        pet.SetBirthDate(view.GetUserStringValueInput("\nEnter animal birth day in format YYYY-MM-DD: "));
+        pet.SetBirthDate(view.GetUserDataInput("\nEnter animal birth day in format YYYY-MM-DD: "));
 
         // Set commands animal knows.
         do {

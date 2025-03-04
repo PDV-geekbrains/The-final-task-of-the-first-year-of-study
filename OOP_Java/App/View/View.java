@@ -104,7 +104,7 @@ public class View {
     }
 
     /**
-     * Get user input of string value.
+     * Gets user input of string value.
      * 
      * @param message Message displayed for user.
      * @return User entered string.
@@ -119,6 +119,34 @@ public class View {
             // TODO
         }
 
+        return input;
+    }
+
+    /**
+     * Gets date in format YYYY-MM-DD.
+     * 
+     * @param message Message displayed to a user.
+     * @return Date in format YYYY-MM-DD.
+     */
+    public String GetUserDataInput(String message) {
+        String input = "";
+        boolean isInputNotValid = true;
+
+        while (isInputNotValid) {
+            System.out.print(message);
+            try {
+                input = reader.readLine();
+                if (input.length() == 10 &&
+                        input.matches("(\\d{4})(-)(\\d{2})(-)(\\d{2})")) {
+                    isInputNotValid = false;
+                } else {
+                    System.out.print("Error. You entered \"" + input + "\". " +
+                            "Please enter date correct.\n");
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+        }
         return input;
     }
 
