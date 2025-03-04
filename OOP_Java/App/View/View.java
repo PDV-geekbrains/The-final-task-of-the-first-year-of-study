@@ -2,17 +2,17 @@ package OOP_Java.App.View;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.InputMismatchException;
-import java.util.regex.Pattern;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 
 /** Displays data to console interactively. */
 public class View {
     BufferedReader reader;
 
     /**
-     * Конструктор.
+     * Constructor.
      * 
-     * @param reader - ридер для чтения с консоли.
+     * @param reader Reader to read from console.
      */
     public View(BufferedReader reader) {
         this.reader = reader;
@@ -156,7 +156,12 @@ public class View {
      * @param message A message to display.
      */
     public void DisplayMessage(String message) {
-        System.out.println(message);
+        try {
+            PrintStream printStream = new PrintStream(System.out, true, "cp866");
+            printStream.println(message);
+        } catch (UnsupportedEncodingException e) {
+            // TODO
+        }
     }
 
     /** Cleans terminal screen. */
