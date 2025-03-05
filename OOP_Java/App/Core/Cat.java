@@ -2,50 +2,57 @@ package OOP_Java.App.Core;
 
 import java.util.LinkedList;
 
+import OOP_Java.App.Core.DTOs.DogFullInfoDto;
+import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
 import OOP_Java.App.Core.DTOs.CatFullInfoDto;
+import OOP_Java.App.Core.Enums.AnimalCommands;
+import OOP_Java.App.Core.Enums.AnimalKinds;
 import OOP_Java.App.Core.Enums.AnimalTypes;
 import OOP_Java.App.Core.Enums.CatClimbingDegrees;
-import OOP_Java.App.Core.Enums.PetKinds;
 import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
 
+/**
+ * Class describes a cat.
+ */
 public class Cat extends Pet implements IDomesticatedAnimal {
-    private static final PetKinds petKind = PetKinds.CAT;
-    private int weight;
+    private static final AnimalKinds petKind = AnimalKinds.CAT;
+    private float weight;
     private String ownerHomeAddress;
     private String name;
     private String birthDate;
-    private LinkedList<String> commands = new LinkedList<>();
+    private LinkedList<AnimalCommands> commands = new LinkedList<>();
     private CatClimbingDegrees climbingDegree;
 
     /** Constructor. */
-    public Cat(
-            String name,
-            String ownerHomeAddress,
-            CatClimbingDegrees climbingDegree) {
-        this.name = name;
-        this.ownerHomeAddress = ownerHomeAddress;
-        this.climbingDegree = climbingDegree;
+    public Cat() {
     }
 
-    /** Animal type cat belongs to getter. */
+    /** Animal type getter. */
     @Override
     public AnimalTypes GetAnimalType() {
         return super.GetAnimalType();
     }
 
+    /** Animal king getter. */
+    @Override
+    public AnimalKinds GetAnimalKind() {
+        return petKind;
+    }
+
     /** Weight getter. */
     @Override
-    public int GetWeight() {
+    public float GetWeight() {
         return this.weight;
     }
 
     /** Weight setter. */
     @Override
-    public void SetWeight(int weight) {
+    public Cat SetWeight(float weight) {
         this.weight = weight;
+        return this;
     }
 
-    /** Full cat info getter. */
+    /** Full info getter. */
     @Override
     public CatFullInfoDto GetFullInfo() {
         return new CatFullInfoDto(
@@ -59,6 +66,16 @@ public class Cat extends Pet implements IDomesticatedAnimal {
                 this.climbingDegree);
     }
 
+    /** Short info getter. */
+    @Override
+    public AnimalShortInfoDto GetShortInfo() {
+        return new AnimalShortInfoDto(
+                super.GetAnimalType(),
+                petKind,
+                this.name,
+                this.birthDate);
+    }
+
     /** Owner home address getter. */
     @Override
     public String GetOwnerHomeAddress() {
@@ -67,47 +84,59 @@ public class Cat extends Pet implements IDomesticatedAnimal {
 
     /** Owner home address setter. */
     @Override
-    public void SetOwnerHomeAddress(String address) {
+    public Cat SetOwnerHomeAddress(String address) {
         this.ownerHomeAddress = address;
+        return this;
     }
 
-    /** Cat name getter. */
+    /** Name getter. */
     public String GetName() {
         return this.name;
     }
 
-    /** Cat name setter. */
-    public void SetName(String name) {
+    /** Name setter. */
+    public Cat SetName(String name) {
         this.name = name;
+        return this;
     }
 
-    /** Cat birth date getter. */
+    /** Birth date getter. */
+    @Override
     public String GetBirthDate() {
         return this.birthDate;
     }
 
-    /** Cat birth date setter. */
-    public void SetBirthDate(String birthDate) {
+    /** Birth date setter. */
+    public Cat SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
+        return this;
     }
 
-    /** Commands the cat knows getter. */
-    public LinkedList<String> GetCommands() {
+    /** Commands the dog knows getter. */
+    public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
-    /** Command the cat knows setter. */
-    public void SetCommand(String command) {
+    /** Command the dog knows setter. */
+    public Cat SetCommand(AnimalCommands command) {
         this.commands.add(command);
+        return this;
     }
 
-    /** Get the cat climbing degree. */
+    /** Climbing degree getter. */
     public CatClimbingDegrees GetClimbingDegree() {
         return this.climbingDegree;
     }
 
-    /** Set the cat climbing degree. */
-    public void SetClimbingDegree(CatClimbingDegrees climbingDegree) {
+    /** Climbing degree setter. */
+    public Cat SetClimbingDegree(CatClimbingDegrees climbingDegree) {
         this.climbingDegree = climbingDegree;
+        return this;
+    }
+
+    /** Compares animals by birth day. */
+    @Override
+    public int compareTo(Animal animal) {
+        return this.birthDate.compareTo(animal.GetBirthDate());
     }
 }

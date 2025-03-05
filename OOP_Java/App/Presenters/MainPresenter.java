@@ -174,8 +174,8 @@ public class MainPresenter {
         view.CleanScreen();
         view.DisplayMessage(new StringBuilder()
                 .append("\n=== TOTAL QUANTITY ===\n\n")
-                .append("Pets : " + petsNum + "\n")
-                .append("Pack animals :" + (animals.size() - petsNum) + "\n")
+                .append("Pets: " + petsNum + "\n")
+                .append("Pack animals: " + (animals.size() - petsNum) + "\n")
                 .append("Total: " + animals.size()).toString());
     }
 

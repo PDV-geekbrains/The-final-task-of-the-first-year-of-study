@@ -16,9 +16,7 @@ public class AnimalInfoPresenter {
         view.CleanScreen();
         switch (animals.get(id).GetAnimalKind()) {
             case DOG:
-                DogPresenter.DisplayDogInfo(
-                        (Dog) animals.get(id),
-                        view);
+                DogPresenter.DisplayDogInfo((Dog) animals.get(id), view);
                 break;
             case CAT:
                 // TODO

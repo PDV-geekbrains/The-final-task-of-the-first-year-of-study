@@ -156,12 +156,8 @@ public class View {
      * @param message A message to display.
      */
     public void DisplayMessage(String message) {
-        try {
-            PrintStream printStream = new PrintStream(System.out, true, "cp866");
-            printStream.println(message);
-        } catch (UnsupportedEncodingException e) {
-            // TODO
-        }
+        PrintStream printStream = new PrintStream(System.out);
+        printStream.println(message);
     }
 
     /** Cleans terminal screen. */

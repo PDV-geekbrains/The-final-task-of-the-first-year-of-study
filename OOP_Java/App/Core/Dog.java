@@ -56,6 +56,7 @@ public class Dog extends Pet implements IDomesticatedAnimal {
         return this;
     }
 
+    /** Full info getter. */
     @Override
     public DogFullInfoDto GetFullInfo() {
         return new DogFullInfoDto(
@@ -69,6 +70,7 @@ public class Dog extends Pet implements IDomesticatedAnimal {
                 this.trackingDegree);
     }
 
+    /** Short info getter. */
     @Override
     public AnimalShortInfoDto GetShortInfo() {
         return new AnimalShortInfoDto(
@@ -91,24 +93,24 @@ public class Dog extends Pet implements IDomesticatedAnimal {
         return this;
     }
 
-    /** Dog name getter. */
+    /** Name getter. */
     public String GetName() {
         return this.name;
     }
 
-    /** Dog name setter. */
+    /** Name setter. */
     public Dog SetName(String name) {
         this.name = name;
         return this;
     }
 
-    /** Dod birth date getter. */
+    /** Birth date getter. */
     @Override
     public String GetBirthDate() {
         return this.birthDate;
     }
 
-    /** Dog birth date setter. */
+    /** Birth date setter. */
     public Dog SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;

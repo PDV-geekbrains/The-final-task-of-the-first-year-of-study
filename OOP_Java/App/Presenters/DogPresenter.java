@@ -61,7 +61,7 @@ public class DogPresenter {
                 .append(("\n=== ANIMAL INFO ===\n\n"))
                 .append("Animal type: " + dto.animalType().toString() + "\n")
                 .append("Pet kind: " + dto.petKind() + "\n")
-                .append("Weight: " +
+                .append("Weight, kg: " +
                         (dto.weight() > 0 ? dto.weight() : "") + "\n")
                 .append("Owner home address: " + dto.ownerHomeAddress() + "\n")
                 .append("Name: " + dto.name() + "\n")
@@ -79,7 +79,11 @@ public class DogPresenter {
 
         for (AnimalCommands command : commands) {
             if (!commands.isEmpty()) {
-                sb.append(command.toString() + " ");
+                if (sb.toString() == "") {
+                    sb.append(command.toString());
+                } else {
+                    sb.append(", " + command.toString());
+                }
             }
         }
 

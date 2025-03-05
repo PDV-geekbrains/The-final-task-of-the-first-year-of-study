@@ -11,9 +11,7 @@ import OOP_Java.App.View.View;
 public class Program {
     public static void main(String[] args) {
         View ui = new View(new BufferedReader(new InputStreamReader(System.in)));
-
         ArrayList<Animal> animals = AnimalsListInit.InitAnimalsList();
-
         MainPresenter presenter = MainPresenter.GetInstance(ui, animals);
         presenter.DisplayMainMenu();
     }
