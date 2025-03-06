@@ -3,6 +3,7 @@ package OOP_Java.App.Presenters;
 import java.util.ArrayList;
 
 import OOP_Java.App.Core.Animal;
+import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.View.View;
 
@@ -19,7 +20,7 @@ public class AnimalInfoPresenter {
                 DogPresenter.DisplayDogInfo((Dog) animals.get(id), view);
                 break;
             case CAT:
-                // TODO
+                CatPresenter.DisplayCatInfo((Cat) animals.get(id), view);
                 break;
             case HAMSTER:
                 // TODO
