@@ -3,14 +3,17 @@ package OOP_Java.App;
 import java.util.ArrayList;
 
 import OOP_Java.App.Core.Animal;
+import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Enums.AnimalCommands;
+import OOP_Java.App.Core.Enums.CatClimbingDegrees;
 import OOP_Java.App.Core.Enums.DogTrackingDegrees;
 
 /**
  * Utility class.
  */
 public class AnimalsListInit {
+        private static final CatClimbingDegrees CatClimbingDegrees = null;
         private static ArrayList<Animal> animals = new ArrayList<Animal>();
 
         /** Creates partly populated list of animals. */
@@ -24,6 +27,20 @@ public class AnimalsListInit {
                                 .SetCommand(AnimalCommands.SPEAK)
                                 .SetCommand(AnimalCommands.FETCH)
                                 .SetWeight(7.3f));
+                animals.add(new Cat()
+                                .SetClimbingDegree(CatClimbingDegrees.NOT_BAD)
+                                .SetOwnerHomeAddress("Ford st., 8")
+                                .SetName("Molly")
+                                .SetBirthDate("2019-03-07")
+                                .SetCommand(AnimalCommands.JUMP)
+                                .SetWeight(2.1f));
+                animals.add(new Cat()
+                                .SetClimbingDegree(CatClimbingDegrees.NOT_REALLY_YET)
+                                .SetOwnerHomeAddress("York st., 2")
+                                .SetName("Rosie")
+                                .SetBirthDate("2021-08-26")
+                                .SetCommand(AnimalCommands.FETCH)
+                                .SetWeight(1.3f));
                 animals.add(new Dog()
                                 .SetTrackingDegree(DogTrackingDegrees.ALREADY_QUITE)
                                 .SetOwnerHomeAddress("Fountain st., 13")
@@ -40,7 +57,13 @@ public class AnimalsListInit {
                                 .SetCommand(AnimalCommands.SIT)
                                 .SetCommand(AnimalCommands.DOWN)
                                 .SetWeight(6.0f));
-                // Cats.
+                animals.add(new Cat()
+                                .SetClimbingDegree(CatClimbingDegrees.GREAT)
+                                .SetOwnerHomeAddress("Market st., 2")
+                                .SetName("Millie")
+                                .SetBirthDate("2018-09-18")
+                                .SetCommand(AnimalCommands.JUMP)
+                                .SetWeight(1.3f));
                 // Hamsters.
                 // Horses.
                 // Camels.
