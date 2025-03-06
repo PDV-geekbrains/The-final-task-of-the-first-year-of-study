@@ -3,6 +3,7 @@ package OOP_Java.App.Presenters;
 import java.util.ArrayList;
 
 import OOP_Java.App.Core.Animal;
+import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Enums.AnimalKinds;
 import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
@@ -13,15 +14,19 @@ public class AnimalCreator {
             AnimalKinds animalKind,
             View view,
             ArrayList<Animal> animals) {
+        IDomesticatedAnimal animal;
         switch (animalKind) {
             case DOG:
                 Dog dog = new Dog();
-                IDomesticatedAnimal animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(dog, view);
+                animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(dog, view);
                 dog = DogPresenter.AddInfoToDog((Dog) animal, view);
                 animals.add(dog);
                 break;
             case CAT:
-                // TODO
+                Cat cat = new Cat();
+                animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(cat, view);
+                cat = CatPresenter.AddInfoToCat((Cat) animal, view);
+                animals.add(cat);
                 break;
             case HAMSTER:
                 // TODO
