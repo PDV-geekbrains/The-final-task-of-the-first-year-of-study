@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
+import OOP_Java.App.Core.Hamster;
 import OOP_Java.App.View.View;
 
 public class AnimalInfoPresenter {
@@ -23,7 +24,7 @@ public class AnimalInfoPresenter {
                 CatPresenter.DisplayCatInfo((Cat) animals.get(id), view);
                 break;
             case HAMSTER:
-                // TODO
+                HamsterPresenter.DisplayHamsterInfo((Hamster) animals.get(id), view);
                 break;
             case HORSE:
                 // TODO

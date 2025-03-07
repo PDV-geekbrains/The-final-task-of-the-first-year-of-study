@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
+import OOP_Java.App.Core.Hamster;
 import OOP_Java.App.Core.Enums.AnimalKinds;
 import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
 import OOP_Java.App.View.View;
@@ -29,7 +30,10 @@ public class AnimalCreator {
                 animals.add(cat);
                 break;
             case HAMSTER:
-                // TODO
+                Hamster hamster = new Hamster();
+                animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(hamster, view);
+                hamster = HamsterPresenter.AddInfoToHamster((Hamster) animal, view);
+                animals.add(hamster);
                 break;
             case HORSE:
                 // TODO
