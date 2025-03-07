@@ -2,7 +2,6 @@ package OOP_Java.App.Core;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.DTOs.DogFullInfoDto;
 import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
 import OOP_Java.App.Core.DTOs.CatFullInfoDto;
 import OOP_Java.App.Core.Enums.AnimalCommands;
