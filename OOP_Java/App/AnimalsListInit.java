@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
+import OOP_Java.App.Core.Hamster;
 import OOP_Java.App.Core.Enums.AnimalCommands;
 import OOP_Java.App.Core.Enums.CatClimbingDegrees;
 import OOP_Java.App.Core.Enums.DogTrackingDegrees;
@@ -13,7 +14,6 @@ import OOP_Java.App.Core.Enums.DogTrackingDegrees;
  * Utility class.
  */
 public class AnimalsListInit {
-        private static final CatClimbingDegrees CatClimbingDegrees = null;
         private static ArrayList<Animal> animals = new ArrayList<Animal>();
 
         /** Creates partly populated list of animals. */
@@ -34,6 +34,13 @@ public class AnimalsListInit {
                                 .SetBirthDate("2019-03-07")
                                 .SetCommand(AnimalCommands.JUMP)
                                 .SetWeight(2.1f));
+                animals.add(new Hamster()
+                                .SetStoredFeedAmount(0.01f)
+                                .SetOwnerHomeAddress("Horton st., 18")
+                                .SetName("Bandit")
+                                .SetBirthDate("2023-05-27")
+                                .SetCommand(AnimalCommands.HIDE)
+                                .SetWeight(0.2f));
                 animals.add(new Cat()
                                 .SetClimbingDegree(CatClimbingDegrees.NOT_REALLY_YET)
                                 .SetOwnerHomeAddress("York st., 2")
@@ -49,6 +56,13 @@ public class AnimalsListInit {
                                 .SetCommand(AnimalCommands.SPEAK)
                                 .SetCommand(AnimalCommands.SIT)
                                 .SetWeight(5.1f));
+                animals.add(new Hamster()
+                                .SetStoredFeedAmount(0.025f)
+                                .SetOwnerHomeAddress("Rose st., 17")
+                                .SetName("Frodo")
+                                .SetBirthDate("2022-06-06")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetWeight(0.3f));
                 animals.add(new Dog()
                                 .SetTrackingDegree(DogTrackingDegrees.A_LITTLE_WEEK)
                                 .SetOwnerHomeAddress("Regent st., 7")

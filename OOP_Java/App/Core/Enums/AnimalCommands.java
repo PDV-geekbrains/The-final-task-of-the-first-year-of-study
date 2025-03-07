@@ -5,6 +5,7 @@ public enum AnimalCommands {
     FASTER,
     FETCH,
     GO,
+    HIDE,
     JUMP,
     LEFT,
     RIGHT,
