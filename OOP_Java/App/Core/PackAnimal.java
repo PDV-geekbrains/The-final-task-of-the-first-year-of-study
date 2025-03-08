@@ -1,49 +1,17 @@
 package OOP_Java.App.Core;
 
-import java.util.Date;
-import java.util.List;
-
 import OOP_Java.App.Core.Enums.AnimalTypes;
-import OOP_Java.App.Core.Enums.AnimalKinds;
 
-public class PackAnimal extends Animal {
-    private AnimalKinds packAnimalKind;
-    private Date birthDate;
-    private int loadCapacity;
+public abstract class PackAnimal extends Animal {
 
-    /**
-     * Constructor.
-     * 
-     * @param animalKind Kind of pack animal.
-     * @param name       Animal name.
-     */
-    public PackAnimal(AnimalKinds animalKind) {
-        super(AnimalTypes.PACK_ANIMAL);
-        this.packAnimalKind = animalKind;
-    }
+    private static final AnimalTypes animalType = AnimalTypes.PACK_ANIMAL;
 
-    /** Get kind of the pack animal. */
-    public String GetPackAnimalKind() {
-        return this.packAnimalKind.toString();
-    }
+    abstract int GetLoadCapacity();
 
-    /** Get the pack animal birth date. */
-    public Date GetBirthDate() {
-        return this.birthDate;
-    }
+    abstract PackAnimal SetLoadCapacity(int loadCapacity);
 
-    /** Set the pack animal birth date. */
-    public void SetBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    /** Get the pack animal load capacity in kilograms. */
-    public int GetLoadCapacity() {
-        return this.loadCapacity;
-    }
-
-    /** Set the pack animal load capacity in kilograms. */
-    public void SetLoadCapacity(int loadCapacity) {
-        this.loadCapacity = loadCapacity;
+    @Override
+    public AnimalTypes GetAnimalType() {
+        return animalType;
     }
 }
