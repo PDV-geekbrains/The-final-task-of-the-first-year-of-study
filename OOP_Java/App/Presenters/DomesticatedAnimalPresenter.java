@@ -23,6 +23,7 @@ public class DomesticatedAnimalPresenter {
 
         // Set commands animal knows.
         do {
+            StringBuilder cmd = new StringBuilder();
             StringBuilder sb = new StringBuilder()
                     .append("\n=== ANIMAL COMMANDS LIST ===\n\n")
                     .append("Commands the animal already knows: ");
@@ -30,12 +31,21 @@ public class DomesticatedAnimalPresenter {
             // Display commands the animal already knows.
             if (pet.GetCommands().size() == 0) {
                 sb.append("---");
+                // Create substring for commands list.
             } else {
                 for (AnimalCommands command : pet.GetCommands()) {
-                    sb.append(command.toString() + " ");
+                    if (!pet.GetCommands().isEmpty()) {
+                        // Append first command.
+                        if (cmd.toString() == "") {
+                            cmd.append(command.toString());
+                            // Append other commands.
+                        } else {
+                            cmd.append(", " + command.toString());
+                        }
+                    }
                 }
             }
-            sb.append("\n\n");
+            sb.append(cmd.toString() + "\n\n");
 
             // Display animal commands list user can pick from.
             int i = 0;

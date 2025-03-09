@@ -2,58 +2,58 @@ package OOP_Java.App.Presenters;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.Hamster;
-import OOP_Java.App.Core.DTOs.HamsterFullInfoDto;
+import OOP_Java.App.Core.Camel;
+import OOP_Java.App.Core.DTOs.CamelFullInfoDto;
 import OOP_Java.App.Core.Enums.AnimalCommands;
 import OOP_Java.App.View.View;
 
-public class HamsterPresenter {
+public class CamelPresenter {
     /**
-     * Adds info to animal type of {@link OOP_Java.App.Core.Hamster}.
+     * Adds info to animal type of {@link OOP_Java.App.Core.Camel}.
      * 
-     * @param animal Animal type of {@link OOP_Java.App.Core.Hamster}.
+     * @param animal Animal type of {@link OOP_Java.App.Core.Camel}.
      * @param view   View.
-     * @return {@link OOP_Java.App.Core.Hamster} object.
+     * @return {@link OOP_Java.App.Core.Camel} object.
      */
-    public static Hamster AddInfoToHamster(Hamster hamster, View view) {
+    public static Camel AddInfoToCamel(Camel camel, View view) {
         // Set weight.
-        hamster.SetWeight(view.GetUserDoubleValueInput(
-                "\nEnter hamster weight in kg: "));
+        camel.SetWeight(view.GetUserDoubleValueInput(
+                "\nEnter camel weight in kg: "));
 
-        // Set owner home address.
-        hamster.SetOwnerHomeAddress(view.GetUserStringValueInput(
-                "\nEnter hamster owner home address: "));
+        // Set load capacity.
+        camel.SetLoadCapacity(view.GetUserIntValueInput(
+                "\nEnter camel load capacity in kg: "));
 
-        // Set hamster stored feed amount.
-        hamster.SetStoredFeedAmount(view.GetUserDoubleValueInput(
-                "\nEnter hamster stored feed amount in grammes: "));
+        // Set camel without water period.
+        camel.SetWithoutWaterPeriod(view.GetUserIntValueInput(
+                "\nEnter camel without water period in days: "));
 
-        return hamster;
+        return camel;
     }
 
     /**
-     * Displays full info about animal type of {@link OOP_Java.App.Core.Hamster}.
+     * Displays full info about animal type of {@link OOP_Java.App.Core.Camel}.
      * 
-     * @param hamster Hamster.
-     * @param view    View.
+     * @param camel Camel instance.
+     * @param view  View instance.
      */
-    public static void DisplayHamsterInfo(Hamster hamster, View view) {
-        view.DisplayMessage(GetFormattedHamsterInfo(hamster.GetFullInfo()));
+    public static void DisplayCamelInfo(Camel camel, View view) {
+        view.DisplayMessage(GetFormattedCamelInfo(camel.GetFullInfo()));
     }
 
     /** Generates a report to display to a user. */
-    private static String GetFormattedHamsterInfo(HamsterFullInfoDto dto) {
+    private static String GetFormattedCamelInfo(CamelFullInfoDto dto) {
         StringBuilder text = new StringBuilder()
                 .append(("\n=== ANIMAL INFO ===\n\n"))
                 .append("Animal type: " + dto.animalType().toString() + "\n")
                 .append("Pet kind: " + dto.petKind() + "\n")
                 .append("Weight, kg: " +
                         (dto.weight() > 0 ? dto.weight() : "") + "\n")
-                .append("Owner home address: " + dto.ownerHomeAddress() + "\n")
+                .append("Camel load capacity, kg: " + dto.loadCapacity() + "\n")
                 .append("Name: " + dto.name() + "\n")
                 .append("Birth date: " + dto.birthDate() + "\n")
                 .append("Commands: " + SetCommandsInLine(dto.commands()) + "\n")
-                .append("Stored feed amount, g: " + (dto.storedFeedAmount()));
+                .append("Without water period: " + dto.withoutWaterPeriod());
 
         return text.toString();
     }
@@ -71,7 +71,6 @@ public class HamsterPresenter {
                 }
             }
         }
-
         return sb.toString();
     }
 }

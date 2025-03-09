@@ -3,6 +3,7 @@ package OOP_Java.App;
 import java.util.ArrayList;
 
 import OOP_Java.App.Core.Animal;
+import OOP_Java.App.Core.Camel;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Hamster;
@@ -43,6 +44,14 @@ public class AnimalsListInit {
                                 .SetBirthDate("2019-03-07")
                                 .SetCommand(AnimalCommands.JUMP)
                                 .SetWeight(2.1f));
+                animals.add(new Camel()
+                                .SetLoadCapacity(730)
+                                .SetWithoutWaterPeriod(10)
+                                .SetName("Ibil")
+                                .SetBirthDate("2013-12-14")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.DOWN)
+                                .SetWeight(220f));
                 animals.add(new Hamster()
                                 .SetStoredFeedAmount(0.01f)
                                 .SetOwnerHomeAddress("Horton st., 18")
@@ -105,6 +114,15 @@ public class AnimalsListInit {
                                 .SetCommand(AnimalCommands.GO)
                                 .SetCommand(AnimalCommands.FASTER)
                                 .SetWeight(550f));
+                animals.add(new Camel()
+                                .SetLoadCapacity(220)
+                                .SetWithoutWaterPeriod(13)
+                                .SetName("Hijen")
+                                .SetBirthDate("2011-04-17")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.GO)
+                                .SetCommand(AnimalCommands.FASTER)
+                                .SetWeight(310f));
                 return animals;
         }
 }

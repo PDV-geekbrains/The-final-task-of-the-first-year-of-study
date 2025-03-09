@@ -110,7 +110,7 @@ public class Horse extends PackAnimal implements IDomesticatedAnimal {
         return this;
     }
 
-    /** Commands the dog knows getter. */
+    /** Commands a horse knows getter. */
     public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }

@@ -3,6 +3,7 @@ package OOP_Java.App.Presenters;
 import java.util.ArrayList;
 
 import OOP_Java.App.Core.Animal;
+import OOP_Java.App.Core.Camel;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Hamster;
@@ -43,7 +44,10 @@ public class AnimalCreator {
                 animals.add(horse);
                 break;
             case CAMEL:
-                // TODO
+                Camel camel = new Camel();
+                animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(camel, view);
+                camel = CamelPresenter.AddInfoToCamel((Camel) animal, view);
+                animals.add(camel);
                 break;
             case DONKEY:
                 // TODO

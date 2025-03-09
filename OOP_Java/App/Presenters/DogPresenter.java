@@ -2,7 +2,6 @@ package OOP_Java.App.Presenters;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.DTOs.DogFullInfoDto;
 import OOP_Java.App.Core.Enums.AnimalCommands;
@@ -20,7 +19,7 @@ public class DogPresenter {
     public static Dog AddInfoToDog(Dog dog, View view) {
         // Set weight.
         dog.SetWeight(view.GetUserDoubleValueInput(
-                "\nEnter dog weight: "));
+                "\nEnter dog weight in kg: "));
 
         // Set owner home address.
         dog.SetOwnerHomeAddress(view.GetUserStringValueInput(

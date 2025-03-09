@@ -19,7 +19,7 @@ public class CatPresenter {
     public static Cat AddInfoToCat(Cat cat, View view) {
         // Set weight.
         cat.SetWeight(view.GetUserDoubleValueInput(
-                "\nEnter cat weight: "));
+                "\nEnter cat weight in kg: "));
 
         // Set owner home address.
         cat.SetOwnerHomeAddress(view.GetUserStringValueInput(

@@ -255,7 +255,7 @@ public class MainPresenter {
         StringBuilder sb = new StringBuilder()
                 .append("\n=== DELETE ANIMAL ===\n\n")
                 .append("You are about to delete the animal with ID = " + animalId +
-                        " from the animals list.\n Please confirm your choice.\n")
+                        " from the animals list.\nPlease confirm your choice.\n")
                 .append("1. Delete\n")
                 .append("2. Exit\n")
                 .append("Enter menu item number: ");
