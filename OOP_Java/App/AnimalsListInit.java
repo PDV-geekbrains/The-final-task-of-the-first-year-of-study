@@ -6,6 +6,7 @@ import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Hamster;
+import OOP_Java.App.Core.Horse;
 import OOP_Java.App.Core.Enums.AnimalCommands;
 import OOP_Java.App.Core.Enums.CatClimbingDegrees;
 import OOP_Java.App.Core.Enums.DogTrackingDegrees;
@@ -27,6 +28,14 @@ public class AnimalsListInit {
                                 .SetCommand(AnimalCommands.SPEAK)
                                 .SetCommand(AnimalCommands.FETCH)
                                 .SetWeight(7.3f));
+                animals.add(new Horse()
+                                .SetLoadCapacity(550)
+                                .SetMaxSpeed(55)
+                                .SetName("Mercury")
+                                .SetBirthDate("2018-11-13")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.GO)
+                                .SetWeight(280f));
                 animals.add(new Cat()
                                 .SetClimbingDegree(CatClimbingDegrees.NOT_BAD)
                                 .SetOwnerHomeAddress("Ford st., 8")
@@ -48,6 +57,15 @@ public class AnimalsListInit {
                                 .SetBirthDate("2021-08-26")
                                 .SetCommand(AnimalCommands.FETCH)
                                 .SetWeight(1.3f));
+                animals.add(new Horse()
+                                .SetLoadCapacity(820)
+                                .SetMaxSpeed(35)
+                                .SetName("Duke")
+                                .SetBirthDate("2014-08-28")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.RIGHT)
+                                .SetCommand(AnimalCommands.LEFT)
+                                .SetWeight(400f));
                 animals.add(new Dog()
                                 .SetTrackingDegree(DogTrackingDegrees.ALREADY_QUITE)
                                 .SetOwnerHomeAddress("Fountain st., 13")
@@ -78,11 +96,15 @@ public class AnimalsListInit {
                                 .SetBirthDate("2018-09-18")
                                 .SetCommand(AnimalCommands.JUMP)
                                 .SetWeight(1.3f));
-                // Hamsters.
-                // Horses.
-                // Camels.
-                // Donkeys.
-
+                animals.add(new Horse()
+                                .SetLoadCapacity(1000)
+                                .SetMaxSpeed(20)
+                                .SetName("Titanium")
+                                .SetBirthDate("2012-11-05")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.GO)
+                                .SetCommand(AnimalCommands.FASTER)
+                                .SetWeight(550f));
                 return animals;
         }
 }

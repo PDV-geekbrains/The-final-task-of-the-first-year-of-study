@@ -6,6 +6,7 @@ import OOP_Java.App.Core.Animal;
 import OOP_Java.App.Core.Cat;
 import OOP_Java.App.Core.Dog;
 import OOP_Java.App.Core.Hamster;
+import OOP_Java.App.Core.Horse;
 import OOP_Java.App.Core.Enums.AnimalKinds;
 import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
 import OOP_Java.App.View.View;
@@ -36,7 +37,10 @@ public class AnimalCreator {
                 animals.add(hamster);
                 break;
             case HORSE:
-                // TODO
+                Horse horse = new Horse();
+                animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(horse, view);
+                horse = HorsePresenter.AddInfoToHorse((Horse) animal, view);
+                animals.add(horse);
                 break;
             case CAMEL:
                 // TODO
