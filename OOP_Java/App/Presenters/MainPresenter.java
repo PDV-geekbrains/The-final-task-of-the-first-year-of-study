@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Enums.AnimalTypes;
+import OOP_Java.App.Models.Animal;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.AnimalTypes;
+import OOP_Java.App.Utilities.AnimalFactory;
 import OOP_Java.App.View.View;
 
 /** Class represents communication between app core and app view. */
@@ -66,7 +67,7 @@ public class MainPresenter {
                 break;
             // Add animal.
             case 5:
-                AnimalCreator.Create(
+                AnimalFactory.Create(
                         GetAnimalKindFromUser(),
                         view,
                         animals);

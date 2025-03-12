@@ -1,7 +1,10 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
-import OOP_Java.App.Core.Enums.AnimalTypes;
+import OOP_Java.App.Models.Enums.AnimalTypes;
 
+/**
+ * Class describes a pack animal.
+ */
 public abstract class PackAnimal extends Animal {
 
     private static final AnimalTypes animalType = AnimalTypes.PACK_ANIMAL;

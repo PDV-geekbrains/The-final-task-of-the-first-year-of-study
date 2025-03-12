@@ -1,40 +1,28 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.DTOs.DogFullInfoDto;
-import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Enums.AnimalTypes;
-import OOP_Java.App.Core.Enums.DogTrackingDegrees;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Models.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Models.DTOs.DonkeyFullInfoDto;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.DonkeyInsistenceDegrees;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
 
 /**
- * Class describes dog.
+ * Class describes a donkey.
  */
-public class Dog extends Pet implements IDomesticatedAnimal {
-    private static final AnimalKinds petKind = AnimalKinds.DOG;
+public class Donkey extends PackAnimal implements IDomesticatedAnimal {
+    private static final AnimalKinds petKind = AnimalKinds.DONKEY;
     private float weight;
-    private String ownerHomeAddress;
+    private int loadCapacity;
     private String name;
     private String birthDate;
     private LinkedList<AnimalCommands> commands = new LinkedList<>();
-    private DogTrackingDegrees trackingDegree;
+    private DonkeyInsistenceDegrees insistenceDegree;
 
     /** Constructor. */
-    public Dog() {
-    }
-
-    /** Constructor. */
-    public Dog(String ownerHomeAddress) {
-        this.ownerHomeAddress = ownerHomeAddress;
-    }
-
-    /** Animal type getter. */
-    @Override
-    public AnimalTypes GetAnimalType() {
-        return super.GetAnimalType();
+    public Donkey() {
     }
 
     /** Animal king getter. */
@@ -51,23 +39,23 @@ public class Dog extends Pet implements IDomesticatedAnimal {
 
     /** Weight setter. */
     @Override
-    public Dog SetWeight(float weight) {
+    public Donkey SetWeight(float weight) {
         this.weight = weight;
         return this;
     }
 
     /** Full info getter. */
     @Override
-    public DogFullInfoDto GetFullInfo() {
-        return new DogFullInfoDto(
+    public DonkeyFullInfoDto GetFullInfo() {
+        return new DonkeyFullInfoDto(
                 super.GetAnimalType(),
                 petKind,
                 this.weight,
-                this.ownerHomeAddress,
+                this.loadCapacity,
                 this.name,
                 this.birthDate,
                 this.commands,
-                this.trackingDegree);
+                this.insistenceDegree);
     }
 
     /** Short info getter. */
@@ -80,16 +68,16 @@ public class Dog extends Pet implements IDomesticatedAnimal {
                 this.birthDate);
     }
 
-    /** Owner home address getter. */
+    /** Load capacity getter. */
     @Override
-    public String GetOwnerHomeAddress() {
-        return this.ownerHomeAddress;
+    public int GetLoadCapacity() {
+        return this.loadCapacity;
     }
 
-    /** Owner home address setter. */
+    /** Load capacity setter. */
     @Override
-    public Dog SetOwnerHomeAddress(String address) {
-        this.ownerHomeAddress = address;
+    public Donkey SetLoadCapacity(int loadCapacity) {
+        this.loadCapacity = loadCapacity;
         return this;
     }
 
@@ -99,7 +87,7 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Name setter. */
-    public Dog SetName(String name) {
+    public Donkey SetName(String name) {
         this.name = name;
         return this;
     }
@@ -111,30 +99,32 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     }
 
     /** Birth date setter. */
-    public Dog SetBirthDate(String birthDate) {
+    public Donkey SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    /** Commands the dog knows getter. */
+    /** Commands getter. */
     public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
-    /** Command the dog knows setter. */
-    public Dog SetCommand(AnimalCommands command) {
+    /** Command setter. */
+    public Donkey SetCommand(AnimalCommands command) {
         this.commands.add(command);
         return this;
     }
 
-    /** Dog tracking degree getter. */
-    public DogTrackingDegrees GetTrackingDegree() {
-        return this.trackingDegree;
+    /** Insistence degree getter. */
+    public DonkeyInsistenceDegrees GetInsistenceDegree() {
+        return this.insistenceDegree;
     }
 
-    /** Dog tracking degree setter. */
-    public Dog SetTrackingDegree(DogTrackingDegrees trackingDegree) {
-        this.trackingDegree = trackingDegree;
+    /**
+     * Insistence degree setter.
+     */
+    public Donkey SetInsistenceDegree(DonkeyInsistenceDegrees insistenceDegree) {
+        this.insistenceDegree = insistenceDegree;
         return this;
     }
 

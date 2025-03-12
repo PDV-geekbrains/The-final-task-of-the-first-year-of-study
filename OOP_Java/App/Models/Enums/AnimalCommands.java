@@ -1,4 +1,4 @@
-package OOP_Java.App.Core.Enums;
+package OOP_Java.App.Models.Enums;
 
 public enum AnimalCommands {
     DOWN,

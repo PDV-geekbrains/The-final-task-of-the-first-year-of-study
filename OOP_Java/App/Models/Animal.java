@@ -1,9 +1,12 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
-import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Enums.AnimalTypes;
+import OOP_Java.App.Models.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.AnimalTypes;
 
+/**
+ * Class describes an animal.
+ */
 public abstract class Animal implements Comparable<Animal> {
 
     public abstract AnimalTypes GetAnimalType();

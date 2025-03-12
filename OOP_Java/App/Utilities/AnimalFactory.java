@@ -1,18 +1,26 @@
-package OOP_Java.App.Presenters;
+package OOP_Java.App.Utilities;
 
 import java.util.ArrayList;
 
-import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Core.Camel;
-import OOP_Java.App.Core.Cat;
-import OOP_Java.App.Core.Dog;
-import OOP_Java.App.Core.Hamster;
-import OOP_Java.App.Core.Horse;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Models.Animal;
+import OOP_Java.App.Models.Camel;
+import OOP_Java.App.Models.Cat;
+import OOP_Java.App.Models.Dog;
+import OOP_Java.App.Models.Donkey;
+import OOP_Java.App.Models.Hamster;
+import OOP_Java.App.Models.Horse;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Presenters.CamelPresenter;
+import OOP_Java.App.Presenters.CatPresenter;
+import OOP_Java.App.Presenters.DogPresenter;
+import OOP_Java.App.Presenters.DomesticatedAnimalPresenter;
+import OOP_Java.App.Presenters.DonkeyPresenter;
+import OOP_Java.App.Presenters.HamsterPresenter;
+import OOP_Java.App.Presenters.HorsePresenter;
 import OOP_Java.App.View.View;
 
-public class AnimalCreator {
+public class AnimalFactory {
     public static void Create(
             AnimalKinds animalKind,
             View view,
@@ -50,7 +58,10 @@ public class AnimalCreator {
                 animals.add(camel);
                 break;
             case DONKEY:
-                // TODO
+                Donkey donkey = new Donkey();
+                animal = DomesticatedAnimalPresenter.AddInfoToDomesticatedAnimal(donkey, view);
+                donkey = DonkeyPresenter.AddInfoToDonkey((Donkey) animal, view);
+                animals.add(donkey);
                 break;
         }
     }

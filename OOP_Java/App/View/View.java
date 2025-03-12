@@ -3,7 +3,6 @@ package OOP_Java.App.View;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 
 /** Displays data to console interactively. */
 public class View {

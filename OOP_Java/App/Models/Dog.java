@@ -1,28 +1,34 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
-import OOP_Java.App.Core.DTOs.HamsterFullInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Enums.AnimalTypes;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Models.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Models.DTOs.DogFullInfoDto;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.AnimalTypes;
+import OOP_Java.App.Models.Enums.DogTrackingDegrees;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
 
 /**
- * Class describes hamster.
+ * Class describes a dog.
  */
-public class Hamster extends Pet implements IDomesticatedAnimal {
-    private static final AnimalKinds petKind = AnimalKinds.HAMSTER;
+public class Dog extends Pet implements IDomesticatedAnimal {
+    private static final AnimalKinds petKind = AnimalKinds.DOG;
     private float weight;
     private String ownerHomeAddress;
     private String name;
     private String birthDate;
     private LinkedList<AnimalCommands> commands = new LinkedList<>();
-    private float storedFeedAmount;
+    private DogTrackingDegrees trackingDegree;
 
     /** Constructor. */
-    public Hamster() {
+    public Dog() {
+    }
+
+    /** Constructor. */
+    public Dog(String ownerHomeAddress) {
+        this.ownerHomeAddress = ownerHomeAddress;
     }
 
     /** Animal type getter. */
@@ -45,15 +51,15 @@ public class Hamster extends Pet implements IDomesticatedAnimal {
 
     /** Weight setter. */
     @Override
-    public Hamster SetWeight(float weight) {
+    public Dog SetWeight(float weight) {
         this.weight = weight;
         return this;
     }
 
     /** Full info getter. */
     @Override
-    public HamsterFullInfoDto GetFullInfo() {
-        return new HamsterFullInfoDto(
+    public DogFullInfoDto GetFullInfo() {
+        return new DogFullInfoDto(
                 super.GetAnimalType(),
                 petKind,
                 this.weight,
@@ -61,7 +67,7 @@ public class Hamster extends Pet implements IDomesticatedAnimal {
                 this.name,
                 this.birthDate,
                 this.commands,
-                this.storedFeedAmount);
+                this.trackingDegree);
     }
 
     /** Short info getter. */
@@ -82,7 +88,7 @@ public class Hamster extends Pet implements IDomesticatedAnimal {
 
     /** Owner home address setter. */
     @Override
-    public Hamster SetOwnerHomeAddress(String address) {
+    public Dog SetOwnerHomeAddress(String address) {
         this.ownerHomeAddress = address;
         return this;
     }
@@ -93,7 +99,7 @@ public class Hamster extends Pet implements IDomesticatedAnimal {
     }
 
     /** Name setter. */
-    public Hamster SetName(String name) {
+    public Dog SetName(String name) {
         this.name = name;
         return this;
     }
@@ -105,30 +111,30 @@ public class Hamster extends Pet implements IDomesticatedAnimal {
     }
 
     /** Birth date setter. */
-    public Hamster SetBirthDate(String birthDate) {
+    public Dog SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    /** Commands getter. */
+    /** Commands the dog knows getter. */
     public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
-    /** Command setter. */
-    public Hamster SetCommand(AnimalCommands command) {
+    /** Command the dog knows setter. */
+    public Dog SetCommand(AnimalCommands command) {
         this.commands.add(command);
         return this;
     }
 
-    /** Hamster stored feed amount getter. */
-    public float GetStoredFeedAmount() {
-        return this.storedFeedAmount;
+    /** Dog tracking degree getter. */
+    public DogTrackingDegrees GetTrackingDegree() {
+        return this.trackingDegree;
     }
 
-    /** Hamster stored feed amount setter. */
-    public Hamster SetStoredFeedAmount(float storedFeedAmount) {
-        this.storedFeedAmount = storedFeedAmount;
+    /** Dog tracking degree setter. */
+    public Dog SetTrackingDegree(DogTrackingDegrees trackingDegree) {
+        this.trackingDegree = trackingDegree;
         return this;
     }
 

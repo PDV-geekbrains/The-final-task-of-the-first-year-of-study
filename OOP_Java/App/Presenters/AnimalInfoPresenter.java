@@ -2,12 +2,13 @@ package OOP_Java.App.Presenters;
 
 import java.util.ArrayList;
 
-import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Core.Camel;
-import OOP_Java.App.Core.Cat;
-import OOP_Java.App.Core.Dog;
-import OOP_Java.App.Core.Hamster;
-import OOP_Java.App.Core.Horse;
+import OOP_Java.App.Models.Animal;
+import OOP_Java.App.Models.Camel;
+import OOP_Java.App.Models.Cat;
+import OOP_Java.App.Models.Dog;
+import OOP_Java.App.Models.Donkey;
+import OOP_Java.App.Models.Hamster;
+import OOP_Java.App.Models.Horse;
 import OOP_Java.App.View.View;
 
 public class AnimalInfoPresenter {
@@ -35,7 +36,7 @@ public class AnimalInfoPresenter {
                 CamelPresenter.DisplayCamelInfo((Camel) animals.get(id), view);
                 break;
             case DONKEY:
-                // TODO
+                DonkeyPresenter.DisplayDonkeyInfo((Donkey) animals.get(id), view);
                 break;
         }
     }

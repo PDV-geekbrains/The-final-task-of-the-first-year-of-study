@@ -1,7 +1,8 @@
 package OOP_Java.App.Presenters;
 
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Utilities.Util;
 import OOP_Java.App.View.View;
 
 public class DomesticatedAnimalPresenter {
@@ -71,17 +72,9 @@ public class DomesticatedAnimalPresenter {
      */
     private static boolean AddCommandOrContinue(IDomesticatedAnimal pet, View view) {
         StringBuilder sb = new StringBuilder()
-                .append("\n\nCommands the animal already knows: ");
-
-        // Display commands the animal already knows.
-        if (pet.GetCommands().size() == 0) {
-            sb.append("---");
-        } else {
-            for (AnimalCommands command : pet.GetCommands()) {
-                sb.append(command.toString() + " ");
-            }
-        }
-        sb.append("\n")
+                .append("\n\nCommands the animal already knows: ")
+                .append(Util.SetCommandsInLine(pet.GetCommands()))
+                .append("\n")
                 .append("\n1. Add new command\n")
                 .append("2. Continue\n")
                 .append("Enter menu item number: ");

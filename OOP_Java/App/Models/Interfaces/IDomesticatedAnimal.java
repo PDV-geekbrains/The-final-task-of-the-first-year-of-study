@@ -1,9 +1,9 @@
-package OOP_Java.App.Core.Interfaces;
+package OOP_Java.App.Models.Interfaces;
 
-import java.util.List;
+import java.util.LinkedList;
 
-import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Core.Enums.AnimalCommands;
+import OOP_Java.App.Models.Animal;
+import OOP_Java.App.Models.Enums.AnimalCommands;
 
 public interface IDomesticatedAnimal {
     String GetName();
@@ -14,7 +14,7 @@ public interface IDomesticatedAnimal {
 
     Animal SetBirthDate(String birthDate);
 
-    List<AnimalCommands> GetCommands();
+    LinkedList<AnimalCommands> GetCommands();
 
     Animal SetCommand(AnimalCommands command);
 }

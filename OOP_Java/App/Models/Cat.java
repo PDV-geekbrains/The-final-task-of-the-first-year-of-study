@@ -1,24 +1,35 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
-import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
-import OOP_Java.App.Core.DTOs.CamelFullInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.AnimalKinds;
+import OOP_Java.App.Models.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Models.DTOs.CatFullInfoDto;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.AnimalTypes;
+import OOP_Java.App.Models.Enums.CatClimbingDegrees;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
 
-public class Camel extends PackAnimal implements IDomesticatedAnimal {
-    private static final AnimalKinds petKind = AnimalKinds.CAMEL;
+/**
+ * Class describes a cat.
+ */
+public class Cat extends Pet implements IDomesticatedAnimal {
+    private static final AnimalKinds petKind = AnimalKinds.CAT;
     private float weight;
-    private int loadCapacity;
+    private String ownerHomeAddress;
     private String name;
     private String birthDate;
     private LinkedList<AnimalCommands> commands = new LinkedList<>();
-    private int withoutWaterPeriod; // in days.
+    private CatClimbingDegrees climbingDegree;
 
     /** Constructor. */
-    public Camel() {
+    public Cat() {
+    }
+
+    /** Animal type getter. */
+    @Override
+    public AnimalTypes GetAnimalType() {
+        return super.GetAnimalType();
     }
 
     /** Animal king getter. */
@@ -35,23 +46,23 @@ public class Camel extends PackAnimal implements IDomesticatedAnimal {
 
     /** Weight setter. */
     @Override
-    public Camel SetWeight(float weight) {
+    public Cat SetWeight(float weight) {
         this.weight = weight;
         return this;
     }
 
     /** Full info getter. */
     @Override
-    public CamelFullInfoDto GetFullInfo() {
-        return new CamelFullInfoDto(
+    public CatFullInfoDto GetFullInfo() {
+        return new CatFullInfoDto(
                 super.GetAnimalType(),
                 petKind,
                 this.weight,
-                this.loadCapacity,
+                this.ownerHomeAddress,
                 this.name,
                 this.birthDate,
                 this.commands,
-                this.withoutWaterPeriod);
+                this.climbingDegree);
     }
 
     /** Short info getter. */
@@ -64,16 +75,16 @@ public class Camel extends PackAnimal implements IDomesticatedAnimal {
                 this.birthDate);
     }
 
-    /** Load capacity getter. */
+    /** Owner home address getter. */
     @Override
-    public int GetLoadCapacity() {
-        return this.loadCapacity;
+    public String GetOwnerHomeAddress() {
+        return this.ownerHomeAddress;
     }
 
-    /** Load capacity setter. */
+    /** Owner home address setter. */
     @Override
-    public Camel SetLoadCapacity(int loadCapacity) {
-        this.loadCapacity = loadCapacity;
+    public Cat SetOwnerHomeAddress(String address) {
+        this.ownerHomeAddress = address;
         return this;
     }
 
@@ -83,7 +94,7 @@ public class Camel extends PackAnimal implements IDomesticatedAnimal {
     }
 
     /** Name setter. */
-    public Camel SetName(String name) {
+    public Cat SetName(String name) {
         this.name = name;
         return this;
     }
@@ -95,32 +106,30 @@ public class Camel extends PackAnimal implements IDomesticatedAnimal {
     }
 
     /** Birth date setter. */
-    public Camel SetBirthDate(String birthDate) {
+    public Cat SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    /** Commands getter. */
+    /** Commands the dog knows getter. */
     public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
-    /** Command setter. */
-    public Camel SetCommand(AnimalCommands command) {
+    /** Command the dog knows setter. */
+    public Cat SetCommand(AnimalCommands command) {
         this.commands.add(command);
         return this;
     }
 
-    /** Without water period getter. */
-    public int GetWithoutWaterPeriod() {
-        return this.withoutWaterPeriod;
+    /** Climbing degree getter. */
+    public CatClimbingDegrees GetClimbingDegree() {
+        return this.climbingDegree;
     }
 
-    /**
-     * Without water period setter.
-     */
-    public Camel SetWithoutWaterPeriod(int period) {
-        this.withoutWaterPeriod = period;
+    /** Climbing degree setter. */
+    public Cat SetClimbingDegree(CatClimbingDegrees climbingDegree) {
+        this.climbingDegree = climbingDegree;
         return this;
     }
 

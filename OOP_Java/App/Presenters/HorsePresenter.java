@@ -1,19 +1,17 @@
 package OOP_Java.App.Presenters;
 
-import java.util.LinkedList;
-
-import OOP_Java.App.Core.Horse;
-import OOP_Java.App.Core.DTOs.HorseFullInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
+import OOP_Java.App.Models.Horse;
+import OOP_Java.App.Models.DTOs.HorseFullInfoDto;
+import OOP_Java.App.Utilities.Util;
 import OOP_Java.App.View.View;
 
 public class HorsePresenter {
     /**
-     * Adds info to animal type of {@link OOP_Java.App.Core.Horse}.
+     * Adds info to animal type of {@link OOP_Java.App.Models.Horse}.
      * 
-     * @param animal Animal type of {@link OOP_Java.App.Core.Horse}.
+     * @param animal Animal type of {@link OOP_Java.App.Models.Horse}.
      * @param view   View.
-     * @return {@link OOP_Java.App.Core.Horse} object.
+     * @return {@link OOP_Java.App.Models.Horse} object.
      */
     public static Horse AddInfoToHorse(Horse horse, View view) {
         // Set weight.
@@ -31,7 +29,7 @@ public class HorsePresenter {
     }
 
     /**
-     * Displays full info about animal type of {@link OOP_Java.App.Core.Horse}.
+     * Displays full info about animal type of {@link OOP_Java.App.Models.Horse}.
      * 
      * @param horse Horse instance.
      * @param view  View instance.
@@ -45,32 +43,15 @@ public class HorsePresenter {
         StringBuilder text = new StringBuilder()
                 .append(("\n=== ANIMAL INFO ===\n\n"))
                 .append("Animal type: " + dto.animalType().toString() + "\n")
-                .append("Pet kind: " + dto.petKind() + "\n")
+                .append("Pet kind: " + dto.packAnimalKind() + "\n")
                 .append("Weight, kg: " +
                         (dto.weight() > 0 ? dto.weight() : "") + "\n")
                 .append("Horse load capacity, kg: " + dto.loadCapacity() + "\n")
                 .append("Name: " + dto.name() + "\n")
                 .append("Birth date: " + dto.birthDate() + "\n")
-                .append("Commands: " + SetCommandsInLine(dto.commands()) + "\n")
+                .append("Commands: " + Util.SetCommandsInLine(dto.commands()) + "\n")
                 .append("Maximum speed: " + dto.maxSpeed());
 
         return text.toString();
-    }
-
-    /** Returns commands separated by spaces. */
-    private static String SetCommandsInLine(LinkedList<AnimalCommands> commands) {
-        StringBuilder sb = new StringBuilder();
-
-        for (AnimalCommands command : commands) {
-            if (!commands.isEmpty()) {
-                if (sb.toString() == "") {
-                    sb.append(command.toString());
-                } else {
-                    sb.append(", " + command.toString());
-                }
-            }
-        }
-
-        return sb.toString();
     }
 }

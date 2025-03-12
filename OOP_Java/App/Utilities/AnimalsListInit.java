@@ -1,16 +1,18 @@
-package OOP_Java.App;
+package OOP_Java.App.Utilities;
 
 import java.util.ArrayList;
 
-import OOP_Java.App.Core.Animal;
-import OOP_Java.App.Core.Camel;
-import OOP_Java.App.Core.Cat;
-import OOP_Java.App.Core.Dog;
-import OOP_Java.App.Core.Hamster;
-import OOP_Java.App.Core.Horse;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.CatClimbingDegrees;
-import OOP_Java.App.Core.Enums.DogTrackingDegrees;
+import OOP_Java.App.Models.Animal;
+import OOP_Java.App.Models.Camel;
+import OOP_Java.App.Models.Cat;
+import OOP_Java.App.Models.Dog;
+import OOP_Java.App.Models.Donkey;
+import OOP_Java.App.Models.Hamster;
+import OOP_Java.App.Models.Horse;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Enums.CatClimbingDegrees;
+import OOP_Java.App.Models.Enums.DogTrackingDegrees;
+import OOP_Java.App.Models.Enums.DonkeyInsistenceDegrees;
 
 /**
  * Utility class.
@@ -37,6 +39,14 @@ public class AnimalsListInit {
                                 .SetCommand(AnimalCommands.STAY)
                                 .SetCommand(AnimalCommands.GO)
                                 .SetWeight(280f));
+                animals.add(new Donkey()
+                                .SetLoadCapacity(80)
+                                .SetInsistenceDegree(DonkeyInsistenceDegrees.TOLERABLE)
+                                .SetName("Oscar")
+                                .SetBirthDate("2020-01-27")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.GO)
+                                .SetWeight(110f));
                 animals.add(new Cat()
                                 .SetClimbingDegree(CatClimbingDegrees.NOT_BAD)
                                 .SetOwnerHomeAddress("Ford st., 8")
@@ -59,6 +69,16 @@ public class AnimalsListInit {
                                 .SetBirthDate("2023-05-27")
                                 .SetCommand(AnimalCommands.HIDE)
                                 .SetWeight(0.2f));
+                animals.add(new Donkey()
+                                .SetLoadCapacity(90)
+                                .SetInsistenceDegree(DonkeyInsistenceDegrees.HEIGHT_OF_STUBBORNNESS)
+                                .SetName("Honker")
+                                .SetBirthDate("2019-07-07")
+                                .SetCommand(AnimalCommands.STAY)
+                                .SetCommand(AnimalCommands.GO)
+                                .SetCommand(AnimalCommands.LEFT)
+                                .SetCommand(AnimalCommands.RIGHT)
+                                .SetWeight(130f));
                 animals.add(new Cat()
                                 .SetClimbingDegree(CatClimbingDegrees.NOT_REALLY_YET)
                                 .SetOwnerHomeAddress("York st., 2")

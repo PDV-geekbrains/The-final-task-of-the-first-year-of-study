@@ -1,28 +1,28 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
-import OOP_Java.App.Core.DTOs.HorseFullInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Enums.AnimalTypes;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Models.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Models.DTOs.HamsterFullInfoDto;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.AnimalTypes;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
 
 /**
- * Class describes horse.
+ * Class describes a hamster.
  */
-public class Horse extends PackAnimal implements IDomesticatedAnimal {
-    private static final AnimalKinds petKind = AnimalKinds.HORSE;
+public class Hamster extends Pet implements IDomesticatedAnimal {
+    private static final AnimalKinds petKind = AnimalKinds.HAMSTER;
     private float weight;
-    private int loadCapacity;
+    private String ownerHomeAddress;
     private String name;
     private String birthDate;
     private LinkedList<AnimalCommands> commands = new LinkedList<>();
-    private int maxSpeed; // in kilometers per hour.
+    private float storedFeedAmount;
 
     /** Constructor. */
-    public Horse() {
+    public Hamster() {
     }
 
     /** Animal type getter. */
@@ -45,23 +45,23 @@ public class Horse extends PackAnimal implements IDomesticatedAnimal {
 
     /** Weight setter. */
     @Override
-    public Horse SetWeight(float weight) {
+    public Hamster SetWeight(float weight) {
         this.weight = weight;
         return this;
     }
 
     /** Full info getter. */
     @Override
-    public HorseFullInfoDto GetFullInfo() {
-        return new HorseFullInfoDto(
+    public HamsterFullInfoDto GetFullInfo() {
+        return new HamsterFullInfoDto(
                 super.GetAnimalType(),
                 petKind,
                 this.weight,
-                this.loadCapacity,
+                this.ownerHomeAddress,
                 this.name,
                 this.birthDate,
                 this.commands,
-                this.maxSpeed);
+                this.storedFeedAmount);
     }
 
     /** Short info getter. */
@@ -74,16 +74,16 @@ public class Horse extends PackAnimal implements IDomesticatedAnimal {
                 this.birthDate);
     }
 
-    /** Load capacity getter. */
+    /** Owner home address getter. */
     @Override
-    public int GetLoadCapacity() {
-        return this.loadCapacity;
+    public String GetOwnerHomeAddress() {
+        return this.ownerHomeAddress;
     }
 
-    /** Load capacity setter. */
+    /** Owner home address setter. */
     @Override
-    public Horse SetLoadCapacity(int loadCapacity) {
-        this.loadCapacity = loadCapacity;
+    public Hamster SetOwnerHomeAddress(String address) {
+        this.ownerHomeAddress = address;
         return this;
     }
 
@@ -93,7 +93,7 @@ public class Horse extends PackAnimal implements IDomesticatedAnimal {
     }
 
     /** Name setter. */
-    public Horse SetName(String name) {
+    public Hamster SetName(String name) {
         this.name = name;
         return this;
     }
@@ -105,35 +105,30 @@ public class Horse extends PackAnimal implements IDomesticatedAnimal {
     }
 
     /** Birth date setter. */
-    public Horse SetBirthDate(String birthDate) {
+    public Hamster SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    /** Commands a horse knows getter. */
+    /** Commands getter. */
     public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
-    /** Command a horse knows setter. */
-    public Horse SetCommand(AnimalCommands command) {
+    /** Command setter. */
+    public Hamster SetCommand(AnimalCommands command) {
         this.commands.add(command);
         return this;
     }
 
-    /** Horse max. speed getter. */
-    public int GetMaxSpeed() {
-        return this.maxSpeed;
+    /** Hamster stored feed amount getter. */
+    public float GetStoredFeedAmount() {
+        return this.storedFeedAmount;
     }
 
-    /**
-     * Horse max. speed setter.
-     * 
-     * @param maxSpeed Max. speed in km/h.
-     * @return Horse instance.
-     */
-    public Horse SetMaxSpeed(int maxSpeed) {
-        this.maxSpeed = maxSpeed;
+    /** Hamster stored feed amount setter. */
+    public Hamster SetStoredFeedAmount(float storedFeedAmount) {
+        this.storedFeedAmount = storedFeedAmount;
         return this;
     }
 

@@ -1,20 +1,18 @@
 package OOP_Java.App.Presenters;
 
-import java.util.LinkedList;
-
-import OOP_Java.App.Core.Cat;
-import OOP_Java.App.Core.DTOs.CatFullInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.CatClimbingDegrees;
+import OOP_Java.App.Models.Cat;
+import OOP_Java.App.Models.DTOs.CatFullInfoDto;
+import OOP_Java.App.Models.Enums.CatClimbingDegrees;
+import OOP_Java.App.Utilities.Util;
 import OOP_Java.App.View.View;
 
 public class CatPresenter {
     /**
-     * Adds info to animal type of {@link OOP_Java.App.Core.Cat}.
+     * Adds info to animal type of {@link OOP_Java.App.Models.Cat}.
      * 
-     * @param animal Animal type of {@link OOP_Java.App.Core.Cat}.
+     * @param animal Animal type of {@link OOP_Java.App.Models.Cat}.
      * @param view   View.
-     * @return {@link OOP_Java.App.Core.Cat} object.
+     * @return {@link OOP_Java.App.Models.Cat} object.
      */
     public static Cat AddInfoToCat(Cat cat, View view) {
         // Set weight.
@@ -45,7 +43,7 @@ public class CatPresenter {
     }
 
     /**
-     * Displays full info about animal type of {@link OOP_Java.App.Core.Cat}.
+     * Displays full info about animal type of {@link OOP_Java.App.Models.Cat}.
      * 
      * @param cat  Cat instance.
      * @param view View instance.
@@ -65,28 +63,10 @@ public class CatPresenter {
                 .append("Owner home address: " + dto.ownerHomeAddress() + "\n")
                 .append("Name: " + dto.name() + "\n")
                 .append("Birth date: " + dto.birthDate() + "\n")
-                .append("Commands: " + SetCommandsInLine(dto.commands()) + "\n")
+                .append("Commands: " + Util.SetCommandsInLine(dto.commands()) + "\n")
                 .append("Climbing degree: " +
                         (dto.climbingDegree() != null ? dto.climbingDegree() : ""));
 
         return text.toString();
     }
-
-    /** Returns commands separated by spaces. */
-    private static String SetCommandsInLine(LinkedList<AnimalCommands> commands) {
-        StringBuilder sb = new StringBuilder();
-
-        for (AnimalCommands command : commands) {
-            if (!commands.isEmpty()) {
-                if (sb.toString() == "") {
-                    sb.append(command.toString());
-                } else {
-                    sb.append(", " + command.toString());
-                }
-            }
-        }
-
-        return sb.toString();
-    }
-
 }

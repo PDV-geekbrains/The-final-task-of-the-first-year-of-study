@@ -1,29 +1,28 @@
-package OOP_Java.App.Core;
+package OOP_Java.App.Models;
 
 import java.util.LinkedList;
 
-import OOP_Java.App.Core.DTOs.AnimalShortInfoDto;
-import OOP_Java.App.Core.DTOs.CatFullInfoDto;
-import OOP_Java.App.Core.Enums.AnimalCommands;
-import OOP_Java.App.Core.Enums.AnimalKinds;
-import OOP_Java.App.Core.Enums.AnimalTypes;
-import OOP_Java.App.Core.Enums.CatClimbingDegrees;
-import OOP_Java.App.Core.Interfaces.IDomesticatedAnimal;
+import OOP_Java.App.Models.DTOs.AnimalShortInfoDto;
+import OOP_Java.App.Models.DTOs.HorseFullInfoDto;
+import OOP_Java.App.Models.Enums.AnimalCommands;
+import OOP_Java.App.Models.Enums.AnimalKinds;
+import OOP_Java.App.Models.Enums.AnimalTypes;
+import OOP_Java.App.Models.Interfaces.IDomesticatedAnimal;
 
 /**
- * Class describes a cat.
+ * Class describes a horse.
  */
-public class Cat extends Pet implements IDomesticatedAnimal {
-    private static final AnimalKinds petKind = AnimalKinds.CAT;
+public class Horse extends PackAnimal implements IDomesticatedAnimal {
+    private static final AnimalKinds petKind = AnimalKinds.HORSE;
     private float weight;
-    private String ownerHomeAddress;
+    private int loadCapacity;
     private String name;
     private String birthDate;
     private LinkedList<AnimalCommands> commands = new LinkedList<>();
-    private CatClimbingDegrees climbingDegree;
+    private int maxSpeed; // in kilometers per hour.
 
     /** Constructor. */
-    public Cat() {
+    public Horse() {
     }
 
     /** Animal type getter. */
@@ -46,23 +45,23 @@ public class Cat extends Pet implements IDomesticatedAnimal {
 
     /** Weight setter. */
     @Override
-    public Cat SetWeight(float weight) {
+    public Horse SetWeight(float weight) {
         this.weight = weight;
         return this;
     }
 
     /** Full info getter. */
     @Override
-    public CatFullInfoDto GetFullInfo() {
-        return new CatFullInfoDto(
+    public HorseFullInfoDto GetFullInfo() {
+        return new HorseFullInfoDto(
                 super.GetAnimalType(),
                 petKind,
                 this.weight,
-                this.ownerHomeAddress,
+                this.loadCapacity,
                 this.name,
                 this.birthDate,
                 this.commands,
-                this.climbingDegree);
+                this.maxSpeed);
     }
 
     /** Short info getter. */
@@ -75,16 +74,16 @@ public class Cat extends Pet implements IDomesticatedAnimal {
                 this.birthDate);
     }
 
-    /** Owner home address getter. */
+    /** Load capacity getter. */
     @Override
-    public String GetOwnerHomeAddress() {
-        return this.ownerHomeAddress;
+    public int GetLoadCapacity() {
+        return this.loadCapacity;
     }
 
-    /** Owner home address setter. */
+    /** Load capacity setter. */
     @Override
-    public Cat SetOwnerHomeAddress(String address) {
-        this.ownerHomeAddress = address;
+    public Horse SetLoadCapacity(int loadCapacity) {
+        this.loadCapacity = loadCapacity;
         return this;
     }
 
@@ -94,7 +93,7 @@ public class Cat extends Pet implements IDomesticatedAnimal {
     }
 
     /** Name setter. */
-    public Cat SetName(String name) {
+    public Horse SetName(String name) {
         this.name = name;
         return this;
     }
@@ -106,30 +105,35 @@ public class Cat extends Pet implements IDomesticatedAnimal {
     }
 
     /** Birth date setter. */
-    public Cat SetBirthDate(String birthDate) {
+    public Horse SetBirthDate(String birthDate) {
         this.birthDate = birthDate;
         return this;
     }
 
-    /** Commands the dog knows getter. */
+    /** Commands a horse knows getter. */
     public LinkedList<AnimalCommands> GetCommands() {
         return this.commands;
     }
 
-    /** Command the dog knows setter. */
-    public Cat SetCommand(AnimalCommands command) {
+    /** Command a horse knows setter. */
+    public Horse SetCommand(AnimalCommands command) {
         this.commands.add(command);
         return this;
     }
 
-    /** Climbing degree getter. */
-    public CatClimbingDegrees GetClimbingDegree() {
-        return this.climbingDegree;
+    /** Horse max. speed getter. */
+    public int GetMaxSpeed() {
+        return this.maxSpeed;
     }
 
-    /** Climbing degree setter. */
-    public Cat SetClimbingDegree(CatClimbingDegrees climbingDegree) {
-        this.climbingDegree = climbingDegree;
+    /**
+     * Horse max. speed setter.
+     * 
+     * @param maxSpeed Max. speed in km/h.
+     * @return Horse instance.
+     */
+    public Horse SetMaxSpeed(int maxSpeed) {
+        this.maxSpeed = maxSpeed;
         return this;
     }
 
