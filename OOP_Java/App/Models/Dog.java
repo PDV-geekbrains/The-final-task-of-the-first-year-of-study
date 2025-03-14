@@ -26,18 +26,13 @@ public class Dog extends Pet implements IDomesticatedAnimal {
     public Dog() {
     }
 
-    /** Constructor. */
-    public Dog(String ownerHomeAddress) {
-        this.ownerHomeAddress = ownerHomeAddress;
-    }
-
     /** Animal type getter. */
     @Override
     public AnimalTypes GetAnimalType() {
         return super.GetAnimalType();
     }
 
-    /** Animal king getter. */
+    /** Animal kind getter. */
     @Override
     public AnimalKinds GetAnimalKind() {
         return petKind;
