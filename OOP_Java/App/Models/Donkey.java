@@ -25,7 +25,7 @@ public class Donkey extends PackAnimal implements IDomesticatedAnimal {
     public Donkey() {
     }
 
-    /** Animal king getter. */
+    /** Animal kind getter. */
     @Override
     public AnimalKinds GetAnimalKind() {
         return petKind;

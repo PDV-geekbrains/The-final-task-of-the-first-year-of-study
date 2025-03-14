@@ -31,7 +31,7 @@ public class Hamster extends Pet implements IDomesticatedAnimal {
         return super.GetAnimalType();
     }
 
-    /** Animal king getter. */
+    /** Animal kind getter. */
     @Override
     public AnimalKinds GetAnimalKind() {
         return petKind;

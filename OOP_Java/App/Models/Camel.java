@@ -24,7 +24,7 @@ public class Camel extends PackAnimal implements IDomesticatedAnimal {
     public Camel() {
     }
 
-    /** Animal king getter. */
+    /** Animal kind getter. */
     @Override
     public AnimalKinds GetAnimalKind() {
         return petKind;
