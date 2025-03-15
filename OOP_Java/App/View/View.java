@@ -18,7 +18,7 @@ public class View {
     }
 
     /**
-     * Get menu item user selected.
+     * Get menu item user selected. Minimum menu item number is 1.
      * 
      * @param menu          Menu caption and contents.
      * @param maxItemNumber Maximum menu item number.
@@ -35,18 +35,23 @@ public class View {
                 input = reader.readLine();
                 result = Integer.parseInt(input);
                 isValid = true;
+
+                if (result < 1) {
+                    System.out.print("Error. You have entered \"" + input +
+                            "\". Minimum menu item number is 1. Try again.\n");
+                    isValid = false;
+                }
+                if (result > maxItemNumber) {
+                    System.out.print("Error. You have entered \"" + input +
+                            "\". Maximum menu item is \"" + maxItemNumber + "\". Try again.\n");
+                    isValid = false;
+                }
             } catch (NumberFormatException e) {
                 System.out.print("Error. You have entered \"" + input +
                         "\". Enter integer.\n");
                 isValid = false;
             } catch (IOException e) {
                 System.out.print("Error. Unexpected error occurred. Try again.\n");
-                isValid = false;
-            }
-
-            if (result > maxItemNumber) {
-                System.out.print("Error. You have entered \"" + input +
-                        "\". Maximum menu item is \"" + maxItemNumber + "\". Try again.\n");
                 isValid = false;
             }
         } while (!isValid);
